@@ -1,0 +1,30 @@
+.index{
+    padding: 200px;
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    flex-flow: row wrap;
+    justify-content: center;
+    border: 1px solid black;
+    gap: 100px 50px;
+    
+}
+.textbox{
+    padding: 20px;
+    display: flex;
+    background-color: white;
+    flex-flow: row wrap;
+    justify-content: center;
+    border: 1px solid black;
+    gap: 100px 50px;
+    font-family: Arial, Helvetica, sans-serif;
+}   
+
+.registro{
+    padding: 10px;
+    display: flex;
+    background-color: white;
+    flex-flow: column wrap;
+    align-items: center;
+    border: 1px solid black;
+    font-family: Arial, Helvetica, sans-serif;
+    }   
