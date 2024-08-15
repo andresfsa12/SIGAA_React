@@ -3,6 +3,9 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import LogoSIGAA from './INDEX/Logo SIGAA.png'
+import { Acudiente } from './Componentes/Acudiente'
+import { Estudiante } from './Componentes/Estudiante'
+import { Docente } from './Componentes/Docente'
 
 function App() {
   const [usuario, setUsuario] = useState('')
@@ -26,31 +29,31 @@ function App() {
           alert('Usuario estudiante')
           setLogeado(true)
         }else{
+          if (usuario == 'acudiente' && clave == 'acudiente'){
+            alert('Usuario acudiente')
+            setLogeado(true)
+          }else{
           alert('Usuario o clave incorrecto')
-        }}} 
+        }}}}
   
   if (logeado && usuario == 'docente') {
     return(
       <>
-      PERFIL DOCENTE <br/>
-      <img src={LogoSIGAA} alt="Logo" width="200px"></img>
-      <h3>Docente Lina Maria Giraldo</h3>
-      <h3>PERIÓDO ACADÉMICO 1</h3>
-      <h3>3 Febrero - 15 Marzo</h3>
-      <button name="logout" id="btn-logout1"> Cerrar Sesión </button>
-      
-</>);
+      <Docente/>
+    </>);
       }else{
         if (logeado && usuario == 'estudiante') {
           return(
             <>
-            PERFIL ESTUDIANTE <br/>
-            <img src={LogoSIGAA} alt="Logo" width="200px"></img>
-            <h3>Estudiante Andres Fabian Sarmiento</h3>
-            <h3>PERIÓDO ACADÉMICO 1</h3>
-            <h3>3 Febrero - 15 Marzo</h3>
-            <button name="logout" id="btn-logout1"> Cerrar Sesión </button>
-            </>)}}
+            <Estudiante/>
+            </>);
+            }else{
+            if (logeado && usuario == 'acudiente') {
+              return(
+                <>
+                <Acudiente/>
+                </>);  
+          }}}
 return (
   <>
     <img src={LogoSIGAA} alt="Logo" width="800px"></img><br/><br/>
