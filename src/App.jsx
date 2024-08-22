@@ -1,16 +1,17 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import LogoSIGAA from './INDEX/Logo SIGAA.png'
-import { Acudiente } from './Componentes/Acudiente'
-import { Estudiante } from './Componentes/Estudiante'
-import { Docente } from './Componentes/Docente'
+import { Acudiente } from './Acudiente'
+import { Estudiante } from './Estudiante'
+import { Docente } from './Docente'
+
 
 function App() {
   const [usuario, setUsuario] = useState('')
   const [clave, setClave] = useState('')
   const [logeado,setLogeado] = useState(false)
+  const [registrar,setRegistrar] = useState(false)
+
 
   function cambiarUsuario(evento){
     setUsuario(evento.target.value)
@@ -56,10 +57,19 @@ function App() {
           }}}
 return (
   <>
-    <img src={LogoSIGAA} alt="Logo" width="800px"></img><br/><br/>
-    Usuario: <input type="text"name="usuario" id="usuario" value={usuario} onChange={cambiarUsuario}/><br/>
-    Contraseña: <input type="password" name="clave" id="clave" value={clave} onChange={cambiarClave}/><br/><br/>
+  <body>
+    <logoIndex>
+    <img src={LogoSIGAA} alt="Logo" width="800px"></img>
+    </logoIndex>
+    <textbox>
+    <h1>Usuario:</h1> <input type="text"name="usuario" id="usuario" value={usuario} onChange={cambiarUsuario}/>
+    <h1>Contraseña:</h1> <input type="password" name="clave" id="clave" value={clave} onChange={cambiarClave}/>
+    </textbox>
+    <textbox>
     <button onClick={ingresar} >INICIAR SESIÓN</button>
+    <h1>Registrarse</h1>
+    </textbox>
+    </body>
     </>)
 }
 export default App

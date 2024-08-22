@@ -7,11 +7,12 @@ export const RegistroAcudiente = () => {
         console.log(data);
     }
   return (
-    <div>
-        <h1>Registro</h1>
+    <content>
+        
         <form onSubmit={handleSubmit(onSubmit)}>
+        <h1>Registro</h1>
             <div>
-                <label>Tipo de documento</label>
+                <label>Tipo de documento</label><br/>
                 <select {...register('tipoDocumento')}>
                     <option value="Cc">Cedula de ciudadania</option>
                     <option value="Ps">Pasaporte</option>
@@ -19,11 +20,11 @@ export const RegistroAcudiente = () => {
                 </select>
             </div>
             <div>
-                <label>Nombres</label>
+                <label>Nombres:</label>
                 <input type='text' {...register('nombres')}/>
             </div>
             <div>
-                <label>Apellidos</label>
+                <label>Apellidos:</label>
                 <input type='text' {...register('apellidos')}/>
             </div>
             <div>
@@ -46,6 +47,6 @@ export const RegistroAcudiente = () => {
                 <input type='submit' value='Enviar'/>
             </div>
         </form>
-    </div>
+    </content>
       )
 }

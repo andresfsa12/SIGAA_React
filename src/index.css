@@ -1,38 +1,74 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+*{
+  padding: 0;
   margin: 0;
+  box-sizing: border-box;
+}
+:root{
+  --mainColor: #0078AF;
+  --mainColor: #60cafc;
+  --secondaryColor: #ffffff;
+  --textColor: black;
+}
+body {
+  padding: 10px;
+  height: 100vh;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  background-color: rgb(255, 255, 255);
+  flex-flow: column;
+  align-items: center;
+  align-content: center;
+  gap: 50px 50px;
+}
+body2{
+
+  background-image: url('./INDEX/Fondo.png');
+  padding: 20px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  gap: 10px 100px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+
+}
+content{
+  padding: 20px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  gap: 100px 10px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  display: flex;
+  align-items: center;
+  font-size: 1.0em;
+  line-height: 0.5;
+  font-family: Arial, Helvetica, sans-serif;
+}
+h3{
+  padding: 0px;
+    display: flex;
+    font-size: 10px;
+    flex-flow: row wrap;
+    align-items: center;
+    border: 0px solid black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+form{
+  display: flex;
+  padding: 1px;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 1px;
 }
 
 button {
@@ -45,9 +81,12 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  font-family: Arial, Helvetica, sans-serif;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #0078AF;
+  background-color: #0078AF;
+  color: #ffffff;
 }
 button:focus,
 button:focus-visible {
@@ -56,13 +95,126 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
+    color: #070707;
     background-color: #ffffff;
   }
   a:hover {
-    color: #747bff;
+    color:#0078AF;
   }
   button {
     background-color: #f9f9f9;
   }
+}
+ 
+input {
+  padding: 3px;
+  display: flex;
+  background-color: white;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  border: 1px solid black;
+  gap: 10px 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+textbox {
+  padding: 1px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  justify-content: flex-start;
+  border: 0px solid black;
+  gap: 50px 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+encabezado{
+  padding: 10px;
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  flex-flow: row wrap;
+  align-items:center;
+  justify-content:space-evenly;
+  border: 1px solid black;
+  gap: 10px 10px;
+  
+}
+
+logoIndex{
+  padding: 120px;
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  border: 0px solid black;
+  gap: 100px 50px;
+}
+
+/*Menu*/
+
+header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  padding: 0 10rem;
+  background-color: var(--mainColor);
+}
+nav a{
+  margin: 0 2rem;
+  color: var(--textColor);
+  text-decoration: none;
+}
+nav a:hover{
+  color: var(--secondaryColor);
+}
+
+header .nav-btn{
+  padding: 5px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--textColor);
+  visibility: hidden;
+  opacity: 0;
+  font-size: 1.8rem;
+
+}
+
+@media only screen and (max-width: 1024px){
+  header .nav-btn{
+    visibility: visible;
+    opacity: 1;
+  }
+
+  header nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    background-color: var(--mainColor);
+    transition: 1s;
+    transform: translateY(-100vh);
+  }
+
+  header .responsive_nav{
+    transform: none;
+  }
+  nav nav-close-btn{
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+  }
+
+  nav a{
+    font-size: 1.5rem;
+    
+  }
+
 }
