@@ -1,14 +1,22 @@
 import React from 'react'
+import LogoSIGAA from './INDEX/Logo SIGAA.png'
+import Navbar_estudiante from './Componentes/Navbar_estudiante';
 
-export const Estudiante = () => {
+export const estudiante = () => {
+
   return (
-    <div>
-    <h1>PERFIL ESTUDIANTE</h1> <br/>
-            <h3>Estudiante Andres Fabian Sarmiento</h3>
-            <h3>PERIÓDO ACADÉMICO 1</h3>
-            <h3>3 Febrero - 15 Marzo</h3>
-            <button name="logout" id="btn-logout1" > Cerrar Sesión </button>
-    </div>
-
-  )
+    <>
+    <body2>
+      <encabezado>
+      <img src={LogoSIGAA} alt="Logo" width="100px"></img>
+         <h3>PERFIL: ESTUDIANTE</h3>
+         <h3>Nombre: Andres Sarmiento</h3>
+         <h3>Periódo Académico 1</h3>
+      </encabezado>
+      <React.Fragment>
+        <Navbar_estudiante/>
+      </React.Fragment>
+    </body2>
+    </>
+    )
 }

@@ -1,6 +1,5 @@
 import React from 'react'
-import LogoSIGAA from './index/Logo SIGAA.png'
-import { RegistroAcudiente } from './Componentes/RegistroAcudiente'
+import LogoSIGAA from './INDEX/Logo SIGAA.png'
 import Navbar_acudiente from './Componentes/Navbar_acudiente';
 
 export const Acudiente = () => {
@@ -17,9 +16,6 @@ export const Acudiente = () => {
       <React.Fragment>
         <Navbar_acudiente/>
       </React.Fragment>
-
-      
-      
     </body2>
     </>
     )
