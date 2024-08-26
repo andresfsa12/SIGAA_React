@@ -1,6 +1,11 @@
 import React from 'react'
 import LogoSIGAA from './INDEX/Logo SIGAA.png'
 import Navbar_acudiente from './Componentes/Navbar_acudiente';
+import { Registro_estudiante } from './Componentes/Registro_estudiante';
+import { Route,Routes } from 'react-router-dom';
+import { Estudiantes } from './Componentes/Estudiantes';
+import { Notas } from './Componentes/Notas';
+import { Asignaturas } from './Componentes/Asignaturas';
 
 export const Acudiente = () => {
 
@@ -16,7 +21,13 @@ export const Acudiente = () => {
       <React.Fragment>
         <Navbar_acudiente/>
       </React.Fragment>
-    </body2>
-    </>
+      <Routes>
+          <Route path="/Estudiantes" element={<Estudiantes/>} />
+          <Route path="/Notas" element={<Notas/>} />
+          <Route path="/Asignaturas" element={<Asignaturas/>} />
+          <Route path="/Registro_estudiante" element={<Registro_estudiante/>} />
+        </Routes>
+      </body2>
+      </>
     )
 }

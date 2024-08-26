@@ -1,7 +1,7 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 
-export const RegistroAcudiente = () => {
+export const Registro_estudiante = () => {
     const {register, handleSubmit} = useForm();
     const onSubmit = (data) => {
         console.log(data);

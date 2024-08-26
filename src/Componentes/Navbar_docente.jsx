@@ -2,7 +2,7 @@ import React from 'react'
 import {useRef} from "react";
 import {FaBars, FaTimes} from 'react-icons/fa';
 
-function Navbar_estudiante() {
+function Navbar_docente() {
     const navRef = useRef();
 
     const showNavbar = () =>{
@@ -12,10 +12,11 @@ function Navbar_estudiante() {
   return (
         <header>
             <nav ref={navRef}>
-                <a href="/#">Notas</a>
+                <a href="/#">Grados</a>
                 <a href="/#">Asignaturas</a>
                 <a href="/#">Horario</a>
                 <a href="/#">Asistencia</a>
+                <a href="/#">Boletines</a>
                 <a href="/#">Cerrar Sesión</a>
                 <button className='nav-btn nav-close-btn' onClick={showNavbar}>
                     <FaTimes/>
@@ -28,4 +29,4 @@ function Navbar_estudiante() {
   )
 }
 
-export default Navbar_estudiante
+export default Navbar_docente

@@ -1,8 +1,9 @@
 import React from 'react'
 import LogoSIGAA from './INDEX/Logo SIGAA.png'
 import Navbar_estudiante from './Componentes/Navbar_estudiante';
+import './Componentes/Navbar.css'
 
-export const estudiante = () => {
+export const Estudiante = () => {
 
   return (
     <>

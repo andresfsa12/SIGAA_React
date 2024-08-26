@@ -1,15 +1,19 @@
 import React from 'react'
-
+import LogoSIGAA from './INDEX/Logo SIGAA.png'
+import Navbar_docente from './Componentes/Navbar_docente';
 
 export const Docente = () => {
   return (
-    <body>
-      <div><h1>PERFIL DOCENTE</h1></div>
-      <h3>Docente Lina Maria Giraldo</h3>
-      <h3>PERIÓDO ACADÉMICO 1</h3>
-      <h3>3 Febrero - 15 Marzo</h3>
-      <button className='button' id="btn-logout1"> Cerrar Sesión </button>
-
-    </body>
+      <body2>
+      <encabezado>
+      <img src={LogoSIGAA} alt="Logo" width="100px"></img>
+         <h3>PERFIL: DOCENTE</h3>
+         <h3>Nombre: Henry Vanegas Plazas</h3>
+         <h3>Periódo Académico 1</h3>
+      </encabezado>
+      <React.Fragment>
+        <Navbar_docente/>
+      </React.Fragment>
+    </body2>
   )
 }
