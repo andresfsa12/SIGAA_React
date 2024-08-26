@@ -58,6 +58,12 @@ content{
   gap: 100px 10px;
   font-family: Arial, Helvetica, sans-serif;
 }
+div text{
+  display: flex;
+  flex-flow: row wrap;
+  align-content: start;
+  align-self: start;
+}
 
 h1 {
   display: flex;
@@ -230,4 +236,25 @@ header .nav-btn{
   opacity: 0;
   font-size: 1.8rem;
 
+}
+
+/* TABLA */
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+table th{
+  color: #fff;
+}
+
+td, th {
+  border: 1px solid #0078AF;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(0n+1) {
+  background-color: #0078AF;
 }

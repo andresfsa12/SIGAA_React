@@ -2,7 +2,6 @@ import React from 'react'
 import {useRef} from "react";
 import {FaBars, FaTimes} from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import "./Navbar.css"
 
 
 function Navbar_acudiente() {
@@ -16,10 +15,10 @@ function Navbar_acudiente() {
         <header>
             <nav ref={navRef}>
                 <ul>
-                <li><Link to="/Estudiantes">Estudiante</Link></li>
-                <li><Link to="/Notas">Notas</Link></li>
-                <li><Link to="/Asignaturas">Asignaturas</Link></li>
-                <li><Link to="/Registro_estudiante">Registrar</Link></li>
+                <li><Link to="/Acudiente/Estudiantes">Estudiante</Link></li>
+                <li><Link to="/Acudiente/Notas">Notas</Link></li>
+                <li><Link to="/Acudiente/Asignaturas">Asignaturas</Link></li>
+                <li><Link to="/Acudiente/Registro_estudiante">Registrar</Link></li>
 
                 </ul>
                 <button className='nav-btn nav-close-btn' onClick={showNavbar}>

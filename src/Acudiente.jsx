@@ -1,11 +1,11 @@
 import React from 'react'
 import LogoSIGAA from './INDEX/Logo SIGAA.png'
 import Navbar_acudiente from './Componentes/Navbar_acudiente';
-import { Registro_estudiante } from './Componentes/Registro_estudiante';
+import { Registro_estudiante } from './Componentes/Acudiente/Registro_estudiante';
 import { Route,Routes } from 'react-router-dom';
-import { Estudiantes } from './Componentes/Estudiantes';
-import { Notas } from './Componentes/Notas';
-import { Asignaturas } from './Componentes/Asignaturas';
+import { Estudiantes } from './Componentes/Acudiente/Estudiantes';
+import { Notas } from './Componentes/Acudiente/Notas';
+import { Asignaturas } from './Componentes/Acudiente/Asignaturas';
 
 export const Acudiente = () => {
 
@@ -22,10 +22,10 @@ export const Acudiente = () => {
         <Navbar_acudiente/>
       </React.Fragment>
       <Routes>
-          <Route path="/Estudiantes" element={<Estudiantes/>} />
-          <Route path="/Notas" element={<Notas/>} />
-          <Route path="/Asignaturas" element={<Asignaturas/>} />
-          <Route path="/Registro_estudiante" element={<Registro_estudiante/>} />
+          <Route path="/Acudiente/Estudiantes" element={<Estudiantes/>} />
+          <Route path="/Acudiente/Notas" element={<Notas/>} />
+          <Route path="/Acudiente/Asignaturas" element={<Asignaturas/>} />
+          <Route path="/Acudiente/Registro_estudiante" element={<Registro_estudiante/>} />
         </Routes>
       </body2>
       </>
