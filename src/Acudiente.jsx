@@ -24,7 +24,6 @@ export const Acudiente = () => {
       <Routes>
           <Route path="/Acudiente/Estudiantes" element={<Estudiantes/>} />
           <Route path="/Acudiente/Notas" element={<Notas/>} />
-          <Route path="/Acudiente/Asignaturas" element={<Asignaturas/>} />
           <Route path="/Acudiente/Registro_estudiante" element={<Registro_estudiante/>} />
         </Routes>
       </body2>

@@ -17,9 +17,8 @@ function Navbar_acudiente() {
                 <ul>
                 <li><Link to="/Acudiente/Estudiantes">Estudiante</Link></li>
                 <li><Link to="/Acudiente/Notas">Notas</Link></li>
-                <li><Link to="/Acudiente/Asignaturas">Asignaturas</Link></li>
                 <li><Link to="/Acudiente/Registro_estudiante">Registrar</Link></li>
-
+                <li><Link to="/">Cerrar Sesion</Link></li>
                 </ul>
                 <button className='nav-btn nav-close-btn' onClick={showNavbar}>
                     <FaTimes/>

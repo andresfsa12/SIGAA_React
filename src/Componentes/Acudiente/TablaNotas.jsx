@@ -3,10 +3,11 @@ import React from 'react'
 export const TablaNotas = () => {
   return (
     <body2>
-        <h1>Estudiantes Registrados</h1>
         <div>
+        <h3>Estudiantes Registrados:</h3>
         <label for="notas"></label>
             <select name="notas" id="notas">
+            
                 <option value="1">Andres Fabian Sarmiento Andapiña</option>
                 <option value="2">Edilberto Sarmiento Andapiña</option>
             </select>
@@ -23,9 +24,9 @@ export const TablaNotas = () => {
                     <td>Brayan Stiven Sanchez Angarita</td>
                 </tr>
                 <tr>
-                    <td>Edilberto</td>
-                    <td>Sarmiento Andapiña</td>
-                    <td>Sexto</td>
+                    <td>Español</td>
+                    <td>3.5</td>
+                    <td>Lina Maria Barreto</td>
                 </tr>
             </table>
             </div>

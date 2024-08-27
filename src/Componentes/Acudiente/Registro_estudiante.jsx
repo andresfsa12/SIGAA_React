@@ -7,10 +7,11 @@ export const Registro_estudiante = () => {
         console.log(data);
     }
   return (
+    <body2>
+    <h1>Registro</h1>
     <content>
-        
         <form onSubmit={handleSubmit(onSubmit)}>
-        <h1>Registro</h1>
+        
             <div>
                 <label>Tipo de documento</label><br/>
                 <select {...register('tipoDocumento')}>
@@ -28,8 +29,12 @@ export const Registro_estudiante = () => {
                 <input type='text' {...register('apellidos')}/>
             </div>
             <div>
-                <label>Número de celular</label>
-                <input type='text' {...register('nCelular')}/>
+                <label>Fecha_Nacimiento</label>
+                <input type='text' {...register('fNacimiento')}/>
+            </div>
+            <div>
+                <label>Género</label>
+                <input type='text' {...register('genero')}/>
             </div>
             <div>
                 <label>Email</label>
@@ -40,13 +45,21 @@ export const Registro_estudiante = () => {
                 <input type='text' {...register('direccion')}/>
             </div>
             <div>
-                <label>Contraseña</label>
-                <input type='password' {...register('password')}/>
+                <label>Grado:</label><br/>
+                <select {...register('grado')}>
+                    <option value="Cc">601</option>
+                    <option value="Ps">701</option>
+                    <option value="Ps">801</option>
+                    <option value="Ps">901</option>
+                    <option value="Ps">1001</option>
+                    <option value="Ps">1101</option>
+                </select>
             </div>
             <div>
                 <input type='submit' value='Enviar'/>
             </div>
         </form>
     </content>
+    </body2>
       )
 }

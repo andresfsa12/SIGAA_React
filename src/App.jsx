@@ -3,6 +3,9 @@ import LogoSIGAA from './INDEX/Logo SIGAA.png'
 import { Acudiente } from './Acudiente'
 import { Estudiante } from './Estudiante'
 import { Docente } from './Docente'
+import { Route,Routes } from 'react-router-dom';
+
+
 
 function App() {
   const [usuario, setUsuario] = useState('')

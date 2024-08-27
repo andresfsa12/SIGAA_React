@@ -49,15 +49,16 @@ body2{
 
 }
 content{
-  padding: 20px;
+  padding: 15px;
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
+  justify-content: left;
+  align-items:first baseline;
   border: 1px solid black;
   gap: 100px 10px;
   font-family: Arial, Helvetica, sans-serif;
 }
+
 div text{
   display: flex;
   flex-flow: row wrap;
@@ -257,4 +258,12 @@ td, th {
 
 tr:nth-child(0n+1) {
   background-color: #0078AF;
+}
+
+/*FORMULARIO*/
+
+form{
+  display: flex;
+  justify-content: left;
+  align-items: start;
 }
