@@ -5,7 +5,6 @@ import { Registro_estudiante } from './Componentes/Acudiente/Registro_estudiante
 import { Route,Routes } from 'react-router-dom';
 import { Estudiantes } from './Componentes/Acudiente/Estudiantes';
 import { Notas } from './Componentes/Acudiente/Notas';
-import { Asignaturas } from './Componentes/Acudiente/Asignaturas';
 
 export const Acudiente = () => {
 
@@ -25,6 +24,7 @@ export const Acudiente = () => {
           <Route path="/Acudiente/Estudiantes" element={<Estudiantes/>} />
           <Route path="/Acudiente/Notas" element={<Notas/>} />
           <Route path="/Acudiente/Registro_estudiante" element={<Registro_estudiante/>} />
+          <Route path="/" element={<App/>} />
         </Routes>
       </body2>
       </>
