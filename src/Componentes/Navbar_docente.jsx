@@ -1,6 +1,7 @@
 import React from 'react'
 import {useRef} from "react";
 import {FaBars, FaTimes} from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 function Navbar_docente() {
     const navRef = useRef();
@@ -12,12 +13,14 @@ function Navbar_docente() {
   return (
         <header>
             <nav ref={navRef}>
-                <a href="/#">Grados</a>
-                <a href="/#">Asignaturas</a>
-                <a href="/#">Horario</a>
-                <a href="/#">Asistencia</a>
-                <a href="/#">Boletines</a>
-                <a href="/#">Cerrar Sesión</a>
+                <ul>
+                <li><Link to="/Docente/Notas">Notas</Link></li>
+                <li><Link to="/Docente/Asignaturas">Asignaturas</Link></li>
+                <li><Link to="/Docente/Horario">Horario</Link></li>
+                <li><Link to="/Docente/Asistencia">Asistencia</Link></li>
+                <li><Link to="/Docente/Boletines">Boletines</Link></li>
+                <li><Link to="/">Cerrar Sesion</Link></li>
+                </ul>
                 <button className='nav-btn nav-close-btn' onClick={showNavbar}>
                     <FaTimes/>
                 </button>

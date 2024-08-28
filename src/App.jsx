@@ -7,7 +7,7 @@ import { Docente } from './Docente'
 
 
 function App() {
-  const [usuario, setUsuario] = useState('')
+  const [usuario, setUsuario] = useState()
   const [clave, setClave] = useState('')
   const [logeado,setLogeado] = useState(false)
 
@@ -67,7 +67,16 @@ return (
     <textbox>
     <button onClick={ingresar} >INICIAR SESIÓN</button>
     </textbox>
+
+    <div><h3>Nota: los usuarios para iniciar sesión son:<br/>
+          * Usuario: acudiente - Clave: acudiente<br/>
+          * Usuario: estudiante - Clave: estudiante<br/>
+          * Usuario: docente - Clave: docente<br/>
+          </h3>
+    </div>
+
     </body>
     </>)
 }
 export default App 
+ 

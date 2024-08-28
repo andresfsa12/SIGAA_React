@@ -40,7 +40,7 @@ body2{
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
+  border: 0px solid black;
   gap: 10px 100px;
   font-family: Arial, Helvetica, sans-serif;
   background-size: cover;
@@ -54,7 +54,7 @@ content{
   flex-flow: row wrap;
   justify-content: left;
   align-items:first baseline;
-  border: 1px solid black;
+  border: 0px solid black;
   gap: 100px 10px;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -94,23 +94,51 @@ form{
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
+  padding: 0.4em 1.1em;
+  font-size: 0.9em;
+  font-weight: 200;
+  background-color: #0078AF;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn {
+  border-radius: 5px;
+  border: 1px solid transparent;
+  padding: 0.1em 1.1em;
+  font-size: 0.7em;
+  font-weight: 200;
   font-family: inherit;
-  background-color: #1a1a1a;
+  color: #f9f9f9;
+  background-color: #0078AF;
   cursor: pointer;
   transition: border-color 0.25s;
   font-family: Arial, Helvetica, sans-serif;
 }
 button:hover {
   border-color: #0078AF;
-  background-color: #0078AF;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #0078AF;
+}
+.btn:hover {
+  border-color: #0078AF;
+  background-color: #ffffff;
+  color: #0078AF;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+.encabezado-tabla{
+padding: 5px;
+display: flex;
+justify-content: space-around
+;
+flex-flow: row wrap;
+border: 0px solid black;
+
+
 }
 
 @media (prefers-color-scheme: light) {
@@ -129,15 +157,15 @@ button:focus-visible {
 input {
   padding: 3px;
   display: flex;
-  background-color: white;
+  background-color: #daf3ff;
   flex-flow: row wrap;
   justify-content: flex-start;
-  border: 1px solid black;
+  border: 0px solid black;
   gap: 10px 10px;
   font-family: Arial, Helvetica, sans-serif;
 }
 textbox {
-  padding: 1px;
+  padding: 2px;
   display: flex;
   flex-wrap: wrap;
   background-color: white;
@@ -153,7 +181,7 @@ encabezado{
   flex-flow: row wrap;
   align-items:center;
   justify-content:space-evenly;
-  border: 1px solid black;
+  border: 0px solid black;
   gap: 10px 10px;
   
 }
