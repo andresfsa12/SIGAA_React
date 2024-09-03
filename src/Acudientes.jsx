@@ -6,17 +6,19 @@ import { Route,Routes } from 'react-router-dom';
 import { Estudiantes } from './Componentes/Acudiente/Estudiantes';
 import { Notas } from './Componentes/Acudiente/Notas';
 
-export const Acudiente = () => {
+
+
+export const Acudientes = () => {
 
   return (
     <>
-    <body2>
-      <encabezado>
+    <div className='Body2'>
+      <div className='encabezado'>
       <img src={LogoSIGAA} alt="Logo" width="100px"></img>
          <h3>PERFIL: ACUDIENTE</h3>
          <h3>Nombre: Hedilberto Sarmiento</h3>
          <h3>Periódo Académico 1</h3>
-      </encabezado>
+      </div>
       <React.Fragment>
         <Navbar_acudiente/>
       </React.Fragment>
@@ -24,9 +26,8 @@ export const Acudiente = () => {
           <Route path="/Acudiente/Estudiantes" element={<Estudiantes/>} />
           <Route path="/Acudiente/Notas" element={<Notas/>} />
           <Route path="/Acudiente/Registro_estudiante" element={<Registro_estudiante/>} />
-          <Route path="/" element={<App/>} />
         </Routes>
-      </body2>
+      </div>
       </>
     )
 }

@@ -2,7 +2,7 @@ import React from 'react'
 
 export const TablaNotas = () => {
   return (
-    <body2>
+    <div className='body2'>
         <div>
         <h3>Estudiantes Registrados:</h3>
         <label for="notas"></label>
@@ -30,6 +30,6 @@ export const TablaNotas = () => {
                 </tr>
             </table>
             </div>
-      </body2>
+      </div>
   )
 }

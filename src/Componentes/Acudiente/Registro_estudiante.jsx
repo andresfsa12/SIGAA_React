@@ -7,9 +7,9 @@ export const Registro_estudiante = () => {
         console.log(data);
     }
   return (
-    <body2>
+    <div className='Body2'>
     <h1>Registro</h1>
-    <content>
+    <div className='Content'>
         <form onSubmit={handleSubmit(onSubmit)}>
         
             <div>
@@ -59,7 +59,7 @@ export const Registro_estudiante = () => {
                 <input type='submit' value='Enviar'/>
             </div>
         </form>
-    </content>
-    </body2>
+    </div>
+    </div>
       )
 }

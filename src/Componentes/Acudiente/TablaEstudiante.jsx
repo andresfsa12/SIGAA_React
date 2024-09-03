@@ -2,7 +2,7 @@ import React from 'react'
 
 export const TablaEstudiante = () => {
   return (
-    <body2>
+    <div className='Body2'>
         <p>Estudiantes Registrados:</p>
         <div>        
             <table>
@@ -24,6 +24,6 @@ export const TablaEstudiante = () => {
                 
             </table>
             </div>
-      </body2>
+      </div>
   )
 }
