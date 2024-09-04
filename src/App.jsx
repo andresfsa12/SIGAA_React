@@ -25,22 +25,9 @@ function App() {
       alert('Bienvenido '+usuario+' - '+clave);
       setLogeado(true)
     }else{
-      alert('Usuario o clave incorrecto')
+      alert('Usuario o clave incorrecto') 
     }}
-    // if (usuario == 'docente' && clave == 'docente'){
-    //     alert('Usuario docente')
-    //     setLogeado(true)
-    // }else{
-    //     if (usuario == 'estudiante' && clave == 'estudiante'){
-    //       alert('Usuario estudiante')
-    //       setLogeado(true)
-    //     }else{
-    //       if (usuario == 'acudiente' && clave == 'acudiente'){
-    //         alert('Usuario acudiente')
-    //         setLogeado(true)
-    //       }else{
-    //       alert('Usuario o clave incorrecto')
-    //     }}}
+
     async function validar(){
       const peticion = await fetch('http://localhost:3000/validar',{credentials: 'include'} )
       if (peticion.ok){
@@ -58,18 +45,6 @@ function App() {
       <Acudientes/>
     </>);
       }
-        // if (logeado && usuario == 'estudiante') {
-        //   return(
-        //     <>
-        //     <Estudiante/>
-        //     </>);
-        //     }else{
-        //     if (logeado && usuario == 'acudiente') {
-        //       return(
-        //         <>
-        //         <Acudiente/>
-        //         </>);  
-        //   }}
 
 return (
   <body>
