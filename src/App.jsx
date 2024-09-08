@@ -19,8 +19,9 @@ function App() {
     setClave(evento.target.value)
   }
 
+
   async function ingresar() {
-    const peticion = await fetch('http://localhost:3000/mydb?N_id=' +usuario+ '&PASSWORD='+ clave, {credentials: 'include'})
+    const peticion = await fetch('http://localhost:3000/login?N_id=' +usuario+ '&PASSWORD='+ clave, {credentials: 'include'})
     if (peticion.ok){
       alert('Bienvenido '+usuario+' - '+clave);
       setLogeado(true)
