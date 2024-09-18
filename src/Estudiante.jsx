@@ -7,8 +7,6 @@ import { Asignaturas } from './Componentes/Estudiante/Asignaturas';
 import { Horario } from './Componentes/Estudiante/Horario';
 import { Asistencia } from './Componentes/Estudiante/Asistencia';
 
-
-
 export const Estudiante = () => {
 
   return (
