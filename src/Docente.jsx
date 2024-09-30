@@ -8,15 +8,18 @@ import { Horario } from './Componentes/Docente/Horario';
 import { Asistencia } from './Componentes/Docente/Asistencia';
 import { Boletines } from './Componentes/Docente/Boletines';
 
-export const Docente = () => {
+export function Docente()  {
+
+
   return (
-      <body2>
-      <encabezado>
+    <div className='Body2'>
+      <div className='encabezado'>
       <img src={LogoSIGAA} alt="Logo" width="100px"></img>
          <h3>PERFIL: DOCENTE</h3>
          <h3>Nombre: Henry Vanegas Plazas</h3>
          <h3>Periódo Académico 1</h3>
-      </encabezado>
+         <button >Cerrar Sesión</button>
+      </div>
       <React.Fragment>
         <Navbar_docente/>
       </React.Fragment>
@@ -27,6 +30,6 @@ export const Docente = () => {
           <Route path="/Docente/Asistencia" element={<Asistencia/>} />
           <Route path="/Docente/Boletines" element={<Boletines/>} />
         </Routes>
-    </body2>
+    </div>
   )
 }

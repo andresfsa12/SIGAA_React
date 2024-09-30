@@ -107,7 +107,7 @@ button {
   border-radius: 5px;
   border: 1px solid transparent;
   padding: 0.1em 1.1em;
-  font-size: 0.7em;
+  font-size: 0.9em;
   font-weight: 200;
   font-family: inherit;
   color: #f9f9f9;
@@ -294,4 +294,7 @@ form{
   display: flex;
   justify-content: left;
   align-items: start;
+  border: 1px solid #0078AF;
+  background-color: #ffffff;
+  padding: 20px;
 }

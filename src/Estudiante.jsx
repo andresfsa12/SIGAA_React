@@ -11,13 +11,14 @@ export const Estudiante = () => {
 
   return (
     <>
-    <body2>
-      <encabezado>
+    <div className='Body2'>
+    <div className='encabezado'>
       <img src={LogoSIGAA} alt="Logo" width="100px"></img>
          <h3>PERFIL: ESTUDIANTE</h3>
          <h3>Nombre: Andres Sarmiento</h3>
          <h3>Periódo Académico 1</h3>
-      </encabezado>
+         <button >Cerrar Sesión</button>
+      </div>
       <React.Fragment>
         <Navbar_estudiante/>
       </React.Fragment>
@@ -27,7 +28,7 @@ export const Estudiante = () => {
           <Route path="/Estudiante/Horario" element={<Horario/>} />
           <Route path="/Estudiante/Asistencia" element={<Asistencia/>} />
         </Routes>
-    </body2>
+    </div>
     </>
     )
 }

@@ -2,7 +2,7 @@ import React from 'react'
 
 export const TablaHorario = () => {
   return (
-    <body2>
+    <div className='body2'>
         <p>Horario:</p>
         <div>        
             <table>
@@ -38,6 +38,6 @@ export const TablaHorario = () => {
                 </tr>
             </table>
             </div>
-      </body2>
+      </div>
   )
 }

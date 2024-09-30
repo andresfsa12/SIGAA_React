@@ -4,7 +4,7 @@ export const TablaEstudiante = () => {
   return (
     <div className='Body2'>
         <p>Estudiantes Registrados:</p>
-        <div>        
+        <div>       
             <table>
                 <tr>
                     <th>Nombre</th>
@@ -23,6 +23,7 @@ export const TablaEstudiante = () => {
                 </tr>
                 
             </table>
+            
             </div>
       </div>
   )

@@ -18,7 +18,6 @@ function Navbar_estudiante() {
                 <li><Link to="/Estudiante/Asignaturas">Asignaturas</Link></li>
                 <li><Link to="/Estudiante/Horario">Horario</Link></li>
                 <li><Link to="/Estudiante/Asistencia">Asistencia</Link></li>
-                <li><Link to="/">Cerrar Sesion</Link></li>
                 </ul>
                 <button className='nav-btn nav-close-btn' onClick={showNavbar}>
                     <FaTimes/>

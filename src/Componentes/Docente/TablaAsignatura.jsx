@@ -2,7 +2,7 @@ import React from 'react'
 
 export const TablaAsignatura = () => {
   return (
-    <body2>
+    <div className='body2'>
         <p>Asignaturas:</p>
         <div>        
             <table>
@@ -25,6 +25,6 @@ export const TablaAsignatura = () => {
                 
             </table>
             </div>
-      </body2>
+      </div>
   )
 }

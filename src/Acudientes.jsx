@@ -6,11 +6,9 @@ import { Route,Routes } from 'react-router-dom';
 import { Estudiantes } from './Componentes/Acudiente/Estudiantes';
 import { Notas } from './Componentes/Acudiente/Notas';
 
+export function Acudientes() {
 
-
-export const Acudientes = () => {
-
-  return (
+  return(
     <>
     <div className='Body2'>
       <div className='encabezado'>
@@ -18,6 +16,7 @@ export const Acudientes = () => {
          <h3>PERFIL: ACUDIENTE</h3>
          <h3>Nombre: Hedilberto Sarmiento</h3>
          <h3>Periódo Académico 1</h3>
+         <button>Cerrar Sesión</button>
       </div>
       <React.Fragment>
         <Navbar_acudiente/>
@@ -28,6 +27,7 @@ export const Acudientes = () => {
           <Route path="/Acudiente/Registro_estudiante" element={<Registro_estudiante/>} />
         </Routes>
       </div>
-      </>
-    )
-}
+      </> 
+  )
+  }
+  export default Acudientes

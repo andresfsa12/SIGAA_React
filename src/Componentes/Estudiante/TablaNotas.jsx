@@ -2,7 +2,7 @@ import React from 'react'
 
 export const TablaNotas = () => {
   return (
-    <body2>
+    <div className='body2'>
         <div>
             <table>
                 <tr>
@@ -23,6 +23,6 @@ export const TablaNotas = () => {
                 </tr>
             </table>
             </div>
-      </body2>
+      </div>
   )
 }
