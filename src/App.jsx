@@ -27,12 +27,13 @@ function App() {
   }
 
  
+ 
   async function ingresar() {
     if(rol == 'acudiente'){
       const peticion1 = await fetch('http://localhost:3000/login-Acudiente?N_id=' +usuario+ '&PASSWORD='+ clave, {credentials: 'include'})
         if (peticion1.ok){
           alert(rol);
-          alert('Bienvenido '+usuario+' - '+clave);
+          alert('Bienvenido '+[usuario+' - '+clave]);
           setLogeado(true)
           }else{
             alert('Usuario o clave incorrecto');
@@ -61,7 +62,7 @@ function App() {
 }}
 
 async function validar(){
-  peticion = await fetch('http://localhost:3000/validar',{credentials: 'include'} )
+  const peticion = await fetch('http://localhost:3000/validar',{credentials: 'include'} )
     if (peticion.ok){
       setLogeado(true)
     }
@@ -92,7 +93,7 @@ async function validar(){
     }
   }}
 return (
-  <body>
+  <div className='body'>
     <img className='LogoIndex' src={LogoSIGAA} alt="Logo" width="800px"></img>
     <form>
     <label htmlFor='rol'><h1>Rol:</h1></label>
@@ -109,7 +110,7 @@ return (
     <div className='textbox'>
     <button type='submit' onClick={ingresar} >INICIAR SESIÓN</button>
     </div>
-  </body>
+  </div>
   )
 }
 

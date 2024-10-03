@@ -6,7 +6,7 @@ export const TablaNotas = () => {
         <div>
         <div className='encabezado-tabla'>
             <div className=''>
-            <label for="grado"></label>
+            <label htmlfor="grado"></label>
             <h3>Grado:</h3>
             <select name="grado" id="grado">
                 <option value="1">601</option>
@@ -21,22 +21,26 @@ export const TablaNotas = () => {
 
         </div>
             <table>
-                <tr>
-                    <th>Asignatura</th>
-                    <th>Nota</th>
-                    <th>Docente</th>
+                <thead>
+                    <tr>
+                        <th>Asignatura</th>
+                        <th>Nota</th>
+                        <th>Docente</th>
 
-                </tr>
-                <tr>
-                    <td>Matemáticas</td>
-                    <td>5.0</td>
-                    <td>Brayan Stiven Sanchez Angarita</td>
-                </tr>
-                <tr>
-                    <td>Español</td>
-                    <td>3.5</td>
-                    <td>Lina Maria Barreto</td>
-                </tr>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Matemáticas</td>
+                        <td>5.0</td>
+                        <td>Brayan Stiven Sanchez Angarita</td>
+                    </tr>
+                    <tr>
+                        <td>Español</td>
+                        <td>3.5</td>
+                        <td>Lina Maria Barreto</td>
+                    </tr>
+                </tbody>
             </table>
             </div>
       </div>
