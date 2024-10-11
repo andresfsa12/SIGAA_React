@@ -4,15 +4,17 @@ import { Acudientes } from './Acudientes'
 import { Estudiante } from './Estudiante'
 import { Docente } from './Docente'
 import { useForm } from 'react-hook-form'
+import {Usuario} from './Componentes/Usuario'
+import UserContext from './Contexto/UserContext'
 
-function App() {
+export function App() {
 
   const [usuario, setUsuario] = useState('')
   const [clave, setClave] = useState('')
   const [rol, setRol] = useState('')
   const [logeado,setLogeado] = useState(false)
 
-
+  const infoUser = usuario;
 
   function cambiarUsuario(evento){
     setUsuario(evento.target.value)
@@ -71,10 +73,13 @@ async function validar(){
       validar() 
     },[])
 
+    
     if (logeado && rol=='acudiente' ) {
       return(
         <>
+        <UserContext.Provider value={infoUser}>
         <Acudientes/>
+        </UserContext.Provider>
       </>);
     }else{
       if (logeado && rol=='docente') {

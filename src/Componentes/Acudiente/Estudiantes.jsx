@@ -1,7 +1,9 @@
 import React from 'react'
 import { TablaEstudiante } from './TablaEstudiante'
+import { useEffect, useState } from 'react'
 
-export const Estudiantes = () => {
+export function Estudiantes () {
+
   return (
     <div>
     <div className='text'>

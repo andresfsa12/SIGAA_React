@@ -1,4 +1,5 @@
 import React from 'react'
+import { useEffect, useState } from 'react'
 import LogoSIGAA from './INDEX/Logo SIGAA.png'
 import Navbar_acudiente from './Componentes/Navbar_acudiente';
 import { Registro_estudiante } from './Componentes/Acudiente/Registro_estudiante';
@@ -7,6 +8,8 @@ import { Estudiantes } from './Componentes/Acudiente/Estudiantes';
 import { Notas } from './Componentes/Acudiente/Notas';
 
 export function Acudientes() {
+
+
 
   return(
     <>
