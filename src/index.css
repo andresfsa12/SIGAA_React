@@ -46,8 +46,9 @@ body {
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
-
 }
+
+
 .Content{
   padding: 15px;
   display: flex;
@@ -286,9 +287,37 @@ td, th {
 
 thead{
   background-color: #0078AF;
+  ;
+
 }
 
+.Body2 .MuiTable-root {
+  /* Estilo general de la tabla */
+  width: 100%;
+  border-collapse: collapse;
+}
+.Body2 .MuiTableCell-head {
+  /* Estilo de las celdas del encabezado */
+  color: white; /* Color del texto del encabezado */
+  font-weight: bold;
+  padding: 10px;
+  text-align: left;
+}
+.Body2 .MuiTableCell-body {
+  /* Estilo de las celdas del cuerpo */
+  padding: 10px;
+  text-align: left;
+}
 
+.Body2 .MuiTableRow-root:nth-child(even) {
+  /* Estilo para filas pares */
+  background-color: #e0e0e0;
+}
+
+.Body2 .MuiIconButton-root {
+  /* Estilo de los botones */
+  margin: 5px;
+}
 /*FORMULARIO*/
 
 form{

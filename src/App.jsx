@@ -3,8 +3,6 @@ import LogoSIGAA from './INDEX/Logo SIGAA.png'
 import { Acudientes } from './Acudientes'
 import { Estudiante } from './Estudiante'
 import { Docente } from './Docente'
-import { useForm } from 'react-hook-form'
-import {Usuario} from './Componentes/Usuario'
 import UserContext from './Contexto/UserContext'
 
 export function App() {

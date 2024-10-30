@@ -44,6 +44,16 @@ export const TablaEstudiante = () => {
         console.error('Error al obtener datos:',error);
       }
     }
+    const onDelete = async (Id_Estudiante)=>{
+      try{
+        const {data}=await axios.post('http://localhost:3000/api/eliminar-estudiante',{Id_Estudiante: Id_Estudiante})
+        alert(data.message)
+        getUser()
+      }
+      catch(error){
+        console.log(error)
+      }
+    }
 
     useEffect(() => {
       getUser();
@@ -52,7 +62,7 @@ export const TablaEstudiante = () => {
   return (
     <div>
       <div className='Body2'>
-      <TableContainer>
+      <TableContainer component={Paper}>
           <Table>
             <TableHead>
               <TableRow>
@@ -88,7 +98,7 @@ export const TablaEstudiante = () => {
                       <IconButton size='small' color='primary'>
                         <EditOutlined/>
                       </IconButton>
-                      <IconButton size='small' color='secondary'>
+                      <IconButton onClick={()=>onDelete(estudiante.Id_Estudiante)} size='small' color='secondary'>
                         <DeleteForeverOutlined/>
                       </IconButton>
                     </TableCell>
