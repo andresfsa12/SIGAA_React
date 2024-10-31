@@ -1,14 +1,31 @@
 import { useEffect, useState } from 'react'
 import React from 'react'
 import axios from 'axios'
-import { Table, IconButton, TableContainer, TableHead, TableRow, TableCell, TableBody, Paper } from '@mui/material';
+import {  Table, IconButton, TableContainer, TableHead, TableRow, TableCell, TableBody, Paper, Modal, Box, TextField, Button} from '@mui/material';
 import { EditOutlined, DeleteForeverOutlined } from '@mui/icons-material';
 /*import UserContext from '../../Contexto/UserContext';*/
 
+//Estilos de la ventana para editar estudiante
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width:   
+ 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
 
 export const TablaEstudiante = () => {
+
   
   const [studentList, setStudentList] = useState([]);
+  const [editingStudent, setEditingStudent] = useState(null);
+  const [openModal, setOpenModal] = useState(false);
+
 
   /*const id_Acudiente = useContext(UserContext);*/
 
@@ -55,6 +72,33 @@ export const TablaEstudiante = () => {
       }
     }
 
+
+     const handleOpenModal = (estudiante) => {
+      setEditingStudent(estudiante);
+      setOpenModal(true);
+    };
+    const handleCloseModal = () => {
+      setEditingStudent(null);
+      setOpenModal(false);
+    };
+    
+    const handleEditChange = (event) => {
+      setEditingStudent({
+        ...editingStudent,
+        [event.target.name]: event.target.value,
+      });
+    };
+
+    const handleSaveEdit = async () => {
+      try {
+        await axios.put(`http://localhost:3000/api/actualizar-estudiante/${editingStudent.Codigo}`, editingStudent);
+        getUser();
+        handleCloseModal();
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
     useEffect(() => {
       getUser();
     })
@@ -66,18 +110,18 @@ export const TablaEstudiante = () => {
           <Table>
             <TableHead>
               <TableRow>
-              <TableCell>Codigo</TableCell>
-              <TableCell>Tipo ID</TableCell>
-              <TableCell>ID Estudiante</TableCell>
-              <TableCell>Nombre</TableCell>
-              <TableCell>Apellido</TableCell>
-              <TableCell>Fecha de nacimiento</TableCell>
-              <TableCell>Genero</TableCell>
-              <TableCell>Dirección</TableCell>
-              <TableCell>Clave</TableCell>
-              <TableCell>Codigo Grado</TableCell>
-              <TableCell>Codigo Acudiente</TableCell>
-              <TableCell>Acciones</TableCell>
+                <TableCell>Codigo</TableCell>
+                <TableCell>Tipo ID</TableCell>
+                <TableCell>ID Estudiante</TableCell>
+                <TableCell>Nombre</TableCell>
+                <TableCell>Apellido</TableCell>
+                <TableCell>Fecha de nacimiento</TableCell>
+                <TableCell>Genero</TableCell>
+                <TableCell>Dirección</TableCell>
+                <TableCell>Clave</TableCell>
+                <TableCell>Codigo Grado</TableCell>
+                <TableCell>Codigo Acudiente</TableCell>
+                <TableCell>Acciones</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -95,7 +139,8 @@ export const TablaEstudiante = () => {
                     <TableCell>{estudiante.Codigo_Grado}</TableCell>
                     <TableCell>{estudiante.Codigo_Acudiente}</TableCell>
                     <TableCell>
-                      <IconButton size='small' color='primary'>
+                      
+                      <IconButton size='small' color='primary' onClick={() => handleOpenModal(estudiante)}>
                         <EditOutlined/>
                       </IconButton>
                       <IconButton onClick={()=>onDelete(estudiante.Id_Estudiante)} size='small' color='secondary'>
@@ -108,6 +153,25 @@ export const TablaEstudiante = () => {
           </Table>
         </TableContainer>
       </div>
+      <Modal open={openModal} onClose={handleCloseModal}>
+        <Box sx={style}>
+          <h2>Editar Estudiante</h2>
+          {editingStudent && (
+            <form>
+              <TextField label="Tipo ID" name="Tipo_Id" value={editingStudent.Tipo_Id} onChange={handleEditChange} fullWidth margin="normal" />
+              <TextField label="ID Estudiante" name="Id_Estudiante" value={editingStudent.Id_Estudiante} onChange={handleEditChange} fullWidth margin="normal" />
+              <TextField label="Nombre" name="Nombre" value={editingStudent.Nombre} onChange={handleEditChange} fullWidth margin="normal" />
+              <TextField label="Apellido" name="Apellido" value={editingStudent.Apellido} onChange={handleEditChange} fullWidth margin="normal" />
+              <TextField label="Fecha de Nacimiento" name="fecha_nacimiento" value={editingStudent.fecha_nacimiento} onChange={handleEditChange} fullWidth margin="normal" />
+              <TextField label="Género" name="Genero" value={editingStudent.Genero} onChange={handleEditChange} fullWidth margin="normal" />
+              <TextField label="Dirección" name="Direccion" value={editingStudent.Direccion} onChange={handleEditChange} fullWidth margin="normal" />
+              <TextField label="Clave" name="Clave" value={editingStudent.Clave} onChange={handleEditChange} fullWidth margin="normal" />
+              <Button variant="contained" color="primary" onClick={handleSaveEdit}>Guardar</Button>
+              <Button variant="outlined" color="secondary" onClick={handleCloseModal}>Cancelar</Button>
+            </form>
+          )}
+        </Box>
+      </Modal>
       </div>
   )
 }
