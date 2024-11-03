@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import React from 'react'
 import axios from 'axios'
 import {  Table, IconButton, TableContainer, TableHead, TableRow, TableCell, TableBody, Paper, Modal, Box, TextField, Button} from '@mui/material';
 import { EditOutlined, DeleteForeverOutlined } from '@mui/icons-material';
-/*import UserContext from '../../Contexto/UserContext';*/
+import UserContext from '../../Contexto/UserContext';
 
 //Estilos de la ventana para editar estudiante
 const style = {
@@ -26,41 +26,18 @@ export const TablaEstudiante = () => {
   const [editingStudent, setEditingStudent] = useState(null);
   const [openModal, setOpenModal] = useState(false);
 
+const cod_Acudiente = useContext(UserContext);
 
-  /*const id_Acudiente = useContext(UserContext);*/
+//Consultar estudiantes que esten relacionados con el ID del acudiente que inició sesión  
+const getUser = async ()=>{
+  try{
+    const {data} = await axios.get('http://localhost:3000/api/acudiente-estudiante', {params: { cod_Acudiente }});
+      setStudentList(data);
+  } catch(error){
+      console.error('Error al obtener datos:', error);
+  }
+}
 
-   
-    /*const [codigoAcudiente,setCodigoAcudiente] = useState([]);*/
-
-  /////////////////////////////////////////////////////////  
-  //Dos formas para obtener el codigo acudiente segun su N_id:
-
-   /* const getCode = async () =>{
-      try{
-      const {data1} = await axios.get('http://localhost:3000/codigo-acudientes?N_id='+infoUser);
-      setCodigoAcudiente(data1)
-    } catch (error){
-      console.error('Error al obtener datos:',error);
-    }}*/
-    
-    /*async function getCode() {
-      const data1 = await fetch('http://localhost:3000/codigo-acudientes?N_id='+id_Acudiente+"'");
-          if (data1.ok){
-            alert(data1);
-            setCodigoAcudiente(data1);
-            }else{
-              alert('Usuario o clave incorrecto');
-            }}*/
-////////////////////////////////////////////////////////////////////
-
-    const getUser = async ()=>{
-      try{
-        const {data} =await axios.get('http://localhost:3000/api/acudiente-estudiantes');
-        setStudentList(data)
-      } catch(error){
-        console.error('Error al obtener datos:',error);
-      }
-    }
     const onDelete = async (Id_Estudiante)=>{
       try{
         const {data}=await axios.post('http://localhost:3000/api/eliminar-estudiante',{Id_Estudiante: Id_Estudiante})
@@ -71,7 +48,6 @@ export const TablaEstudiante = () => {
         console.log(error)
       }
     }
-
 
      const handleOpenModal = (estudiante) => {
       setEditingStudent(estudiante);
@@ -105,6 +81,7 @@ export const TablaEstudiante = () => {
   
   return (
     <div>
+      
       <div className='Body2'>
       <TableContainer component={Paper}>
           <Table>
@@ -120,7 +97,7 @@ export const TablaEstudiante = () => {
                 <TableCell>Dirección</TableCell>
                 <TableCell>Clave</TableCell>
                 <TableCell>Codigo Grado</TableCell>
-                <TableCell>Codigo Acudiente</TableCell>
+                <TableCell>Id Acudiente</TableCell>
                 <TableCell>Acciones</TableCell>
               </TableRow>
             </TableHead>
@@ -137,7 +114,7 @@ export const TablaEstudiante = () => {
                     <TableCell>{estudiante.Direccion}</TableCell>
                     <TableCell>{estudiante.Clave}</TableCell>
                     <TableCell>{estudiante.Codigo_Grado}</TableCell>
-                    <TableCell>{estudiante.Codigo_Acudiente}</TableCell>
+                    <TableCell>{estudiante.Id_Acudiente}</TableCell>
                     <TableCell>
                       
                       <IconButton size='small' color='primary' onClick={() => handleOpenModal(estudiante)}>
