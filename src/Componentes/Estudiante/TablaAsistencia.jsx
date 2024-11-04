@@ -1,47 +1,57 @@
 import React from 'react'
+import { useContext, useEffect, useState } from 'react'
+import {  Table, IconButton, TableContainer, TableHead, TableRow, TableCell, TableBody, Paper, Modal, Box, TextField, Button} from '@mui/material';
+import axios from 'axios'
+import UserContext from '../../Contexto/UserContext';
 
 export const TablaAsistencia = () => {
+
+    const [asistenciaList, setAsistenciaList] = useState([]);
+    const cod_Estudiante = useContext(UserContext);
+
+    const getAsistencia = async ()=>{
+        try{
+          const {data} =await axios.get('http://localhost:3000/api/asistencia-estudiante', {params: { cod_Estudiante }});
+          setAsistenciaList(data);
+        } catch(error){
+          console.error('Error al obtener datos:',error);
+        }
+      }
+
+      useEffect(() => {
+        getAsistencia();
+      })
+
   return (
-    <div className='body2'>
+    <div className='Body2'>
         <div>
-        <h3>Asignatura</h3>
-        <label htmlfor="asignatura"></label>
-            <select name="asignatura" id="asignatura">
-                <option value="1">Matematicas</option>
-                <option value="2">Español</option>
-                <option value="3">Quimica</option>
-                <option value="4">Etica</option>
-                <option value="5">Sociales</option>
-                <option value="6">Deporte</option>
-                <option value="7">Todas</option>
-            </select>
-            <table>
-                <thead>
-                    <tr>
-                        <th>No.</th>    
-                        <th>Materia</th>
-                        <th>Profesor</th>
-                        <th>Fecha</th>
-                        <th>Observación</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Matematicas</td>
-                        <td>Brayan Stiven Angarita Sanchez</td>
-                        <td>26/08/2024</td>
-                        <td><input></input></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Español</td>
-                        <td>Lina Maria Barreto</td>
-                        <td>22/08/2024</td>
-                        <td><input></input></td>
-                    </tr>
-                </tbody>
-            </table>
+        <TableContainer component={Paper}>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>Codigo</TableCell>
+                <TableCell>Fecha</TableCell>
+                <TableCell>Codigo Estudiante</TableCell>
+                <TableCell>Asignatura</TableCell>
+                <TableCell>Periodo Académico</TableCell>
+                <TableCell>Docente</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {asistenciaList.map((asistencia,index)=>(
+                <TableRow key={index}>
+                    <TableCell>{asistencia.Codigo_Asistencia}</TableCell>
+                    <TableCell>{asistencia.Fecha}</TableCell>
+                    <TableCell>{asistencia.Codigo_Estudiante}</TableCell>
+                    <TableCell>{asistencia.Materia}</TableCell>
+                    <TableCell>{asistencia.Periodo_Nombre}</TableCell>
+                    <TableCell>{asistencia.Codigo_Docente}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+       
             </div>
       </div>
   )

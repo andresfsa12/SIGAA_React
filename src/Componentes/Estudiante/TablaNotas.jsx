@@ -1,31 +1,57 @@
 import React from 'react'
+import { useContext, useEffect, useState } from 'react'
+import {  Table, IconButton, TableContainer, TableHead, TableRow, TableCell, TableBody, Paper, Modal, Box, TextField, Button} from '@mui/material';
+import axios from 'axios'
+import UserContext from '../../Contexto/UserContext';
 
 export const TablaNotas = () => {
+
+    const [notasList, setNotasList] = useState([]);
+    const cod_Estudiante = useContext(UserContext);
+
+    const getNota = async ()=>{
+        try{
+          const {data} =await axios.get('http://localhost:3000/api/notas-estudiante', {params: { cod_Estudiante }});
+          setNotasList(data);
+        } catch(error){
+          console.error('Error al obtener datos:',error);
+        }
+      }
+
+      useEffect(() => {
+        getNota();
+      })
+
   return (
     <div className='body2'>
-        <div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Asignatura</th>
-                        <th>Nota</th>
-                        <th>Docente</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Matemáticas</td>
-                        <td>5.0</td>
-                        <td>Brayan Stiven Sanchez Angarita</td>
-                    </tr>
-                    <tr>
-                        <td>Español</td>
-                        <td>3.5</td>
-                        <td>Lina Maria Barreto</td>
-                    </tr>
-                </tbody>
-            </table>
-            </div>
+       <TableContainer component={Paper}>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>Codigo Estudiante</TableCell>
+                <TableCell>Nombre</TableCell>
+                <TableCell>Apellido</TableCell>
+                <TableCell>Asignatura</TableCell>
+                <TableCell>Periodo Académico</TableCell>
+                <TableCell>Nota</TableCell>
+                <TableCell>Docente</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {notasList.map((notas,index)=>(
+                <TableRow key={index}>
+                    <TableCell>{notas.Codigo_Estudiante}</TableCell>
+                    <TableCell>{notas.Nombre}</TableCell>
+                    <TableCell>{notas.Apellido}</TableCell>
+                    <TableCell>{notas.Materia}</TableCell>
+                    <TableCell>{notas.Codigo_Periodos}</TableCell>
+                    <TableCell>{notas.nota}</TableCell>
+                    <TableCell>{notas.Codigo_Docente}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       </div>
   )
 }

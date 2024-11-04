@@ -70,8 +70,10 @@ const getUser = async ()=>{
         await axios.put(`http://localhost:3000/api/actualizar-estudiante/${editingStudent.Codigo}`, editingStudent);
         getUser();
         handleCloseModal();
+        alert('Actualizado correctamente');
       } catch (error) {
         console.log(error);
+        alert('Error al procesar la solicitud.');
       }
     };
 

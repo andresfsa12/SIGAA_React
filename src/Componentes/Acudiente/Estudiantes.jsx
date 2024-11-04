@@ -5,10 +5,10 @@ import { useEffect, useState } from 'react'
 export function Estudiantes () {
 
   return (
-    <div>
-    <div className='text'>
+    <div className='Body2'>
+    <div>Estudiantes:</div>
       <TablaEstudiante/>
     </div>
-    </div>
+
   )
 }

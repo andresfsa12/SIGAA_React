@@ -2,6 +2,7 @@ import React from 'react'
 import {useRef} from "react";
 import {FaBars, FaTimes} from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import LogoSIGAA from '../INDEX/Logo SIGAA B.png'
 
 function Navbar_acudiente() {
     const navRef = useRef();
@@ -13,6 +14,7 @@ function Navbar_acudiente() {
   return (
         <header>
             <nav ref={navRef}>
+            <img src={LogoSIGAA} alt="Logo" width="120px"></img>
                 <ul>
                 <li><Link to="/Acudiente/Estudiantes">Estudiante</Link></li>
                 <li><Link to="/Acudiente/Notas">Notas</Link></li>

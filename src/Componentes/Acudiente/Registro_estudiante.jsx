@@ -1,8 +1,13 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useContext} from 'react'
+import UserContext from '../../Contexto/UserContext';
+
 
 export function Registro_estudiante() {
+
+    const cod_Acudiente = useContext(UserContext);
 
     const [values, setValues] = useState({
 
@@ -15,7 +20,7 @@ export function Registro_estudiante() {
       Direccion:'',
       Clave:'',
       Codigo_Grado:'',
-      Codigo_Acudiente:''
+      Codigo_Acudiente: cod_Acudiente
     })
 
     const handleChange = (event) =>{
@@ -91,7 +96,7 @@ export function Registro_estudiante() {
             </div>
             <div>
                 <label htmlFor='Codigo_Acudiente'>Codigo Acudiente</label>
-                <input placeholder='Ingrese cod acudiente' type='text' name='Codigo_Acudiente' onChange={handleChange}/>
+                <input placeholder='Ingrese cod acudiente' type='text' disabled name='Codigo_Acudiente' value={cod_Acudiente}/>
             </div>
             <div className='textbox'>
                 <button className='btn' type='submit' value='registrar'>Registrar</button>
