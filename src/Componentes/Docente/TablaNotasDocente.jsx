@@ -1,8 +1,8 @@
 import React from 'react'
 import { useContext, useEffect, useState } from 'react'
 import {  Table, IconButton, TableContainer, TableHead, TableRow, TableCell, TableBody, Paper, Modal, Box, TextField, Button} from '@mui/material';
-import { EditOutlined, DeleteForeverOutlined } from '@mui/icons-material';
-import axios from 'axios'
+import { EditOutlined, DeleteForeverOutlined, AddCircleOutline } from '@mui/icons-material'; 
+import axios from 'axios';
 import UserContext from '../../Contexto/UserContext';
 
 export const TablaNotasDocente = () => {
@@ -23,9 +23,18 @@ export const TablaNotasDocente = () => {
 
   const [editingNotas, setEditingNotas] = useState(null);
   const [openModal, setOpenModal] = useState(false);
-
   const [notasList, setNotasList] = useState([]);
   const id_docente = useContext(UserContext);
+    // Estado para controlar la visibilidad del modal de agregar notas
+  const [openAddModal, setOpenAddModal] = useState(false);
+    // Estado para almacenar los datos de la nueva nota
+  const [newNota, setNewNota] = useState({
+    Codigo_Estudiante: '',
+    Materia: '',
+    Codigo_Periodos: '',
+    nota: '',
+    Codigo_Docente: id_docente // Asigna el ID del docente automáticamente
+  });
 
     const getNota = async ()=>{
         try{
@@ -91,8 +100,6 @@ export const TablaNotasDocente = () => {
         setOpenAddModal(false);
         setNewNota({  // Limpia el estado newNota
           Codigo_Estudiante: '',
-          Nombre: '',
-          Apellido: '',
           Materia: '',
           Codigo_Periodos: '',
           nota: '',
@@ -121,15 +128,23 @@ export const TablaNotasDocente = () => {
         }
       };
 
-
-
       useEffect(() => {
         getNota();
       })
 
   return (
     <div className='body2'>
+      
        <TableContainer component={Paper}>
+        {/* Agrega un botón para abrir el modal de agregar nota */}
+        <Button 
+          variant="contained" 
+          startIcon={<AddCircleOutline />} 
+          onClick={handleOpenAddModal}
+          sx={{marginBottom: 2}}
+        >
+          Agregar Nota
+        </Button>
           <Table>
             <TableHead>
               <TableRow>
@@ -170,7 +185,8 @@ export const TablaNotasDocente = () => {
             </TableBody>
           </Table>
         </TableContainer>
-    
+      
+      
       <Modal open={openModal} onClose={handleCloseModal}>
       <Box sx={style}>
         <h2>Editar Notas</h2>
@@ -184,6 +200,38 @@ export const TablaNotasDocente = () => {
         )}
       </Box>
     </Modal>
+    {/* Modal para agregar nuevas notas */}
+    <Modal open={openAddModal} onClose={handleCloseAddModal}>
+        <Box
+          sx={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            bgcolor: 'background.paper',
+            boxShadow:   24,
+            p: 6,
+          }}
+        >
+          <h2>Agregar Nueva Nota</h2>
+          <TextField 
+            label="Codigo Estudiante" name="Codigo_Estudiante" value={newNota.Codigo_Estudiante} onChange={handleAddChange} fullWidth margin="normal" 
+          />
+          <TextField 
+            label="Materia" name="Materia" value={newNota.Materia} onChange={handleAddChange} fullWidth margin="normal" 
+          />
+          <TextField 
+            label="Periodo" name="Codigo_Periodos" value={newNota.Codigo_Periodos} onChange={handleAddChange} fullWidth margin="normal" 
+          />
+          <TextField 
+            label="Nota" name="nota" value={newNota.nota} onChange={handleAddChange} fullWidth margin="normal"
+          />
+          <TextField 
+            label="Codigo Docente" name="Codigo_Docente" value={newNota.Codigo_Docente} onChange={handleAddChange} fullWidth margin="normal" disabled
+          />
+          <Button variant="contained" onClick={handleSaveAdd}>Agregar Nota</Button>
+        </Box>
+      </Modal>
     
   </div>
 )
