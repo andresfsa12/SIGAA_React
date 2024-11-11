@@ -13,13 +13,7 @@ export function Docente()  {
 
   return (
     <div className='Body2'>
-      <div className='encabezado'>
-      <img src={LogoSIGAA} alt="Logo" width="100px"></img>
-         <h3>PERFIL: DOCENTE</h3>
-         <h3>Nombre: Henry Vanegas Plazas</h3>
-         <h3>Periódo Académico 1</h3>
-         <button >Cerrar Sesión</button>
-      </div>
+
       <React.Fragment>
         <Navbar_docente/>
       </React.Fragment>

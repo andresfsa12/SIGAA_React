@@ -45,7 +45,7 @@ export const TablaAsistencia = () => {
                     <TableCell>{asistencia.Codigo_Estudiante}</TableCell>
                     <TableCell>{asistencia.Materia}</TableCell>
                     <TableCell>{asistencia.Periodo_Nombre}</TableCell>
-                    <TableCell>{asistencia.Codigo_Docente}</TableCell>
+                    <TableCell>{asistencia.Nombre_Docente}</TableCell>
                 </TableRow>
               ))}
             </TableBody>

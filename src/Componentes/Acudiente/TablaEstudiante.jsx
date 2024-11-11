@@ -98,7 +98,7 @@ const getUser = async ()=>{
                 <TableCell>Genero</TableCell>
                 <TableCell>Dirección</TableCell>
                 <TableCell>Clave</TableCell>
-                <TableCell>Codigo Grado</TableCell>
+                <TableCell>Grado</TableCell>
                 <TableCell>Id Acudiente</TableCell>
                 <TableCell>Acciones</TableCell>
               </TableRow>

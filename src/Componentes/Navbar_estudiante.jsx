@@ -17,9 +17,8 @@ function Navbar_estudiante() {
             <img src={LogoSIGAA} alt="Logo" width="120px"></img>
                 <ul>
                 <li><Link to="/Estudiante/Notas">Notas</Link></li>
-                <li><Link to="/Estudiante/Asignaturas">Asignaturas</Link></li>
                 <li><Link to="/Estudiante/Horario">Horario</Link></li>
-                <li><Link to="/Estudiante/Asistencia">Asistencia</Link></li>
+                <li><Link to="/Estudiante/Asistencia">Inasistencias</Link></li>
                 </ul>
                 <button className='nav-btn nav-close-btn' onClick={showNavbar}>
                     <FaTimes/>

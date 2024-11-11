@@ -83,7 +83,9 @@ async function validar(){
       if (logeado && rol=='docente') {
         return(
           <>
+          <UserContext.Provider value={infoUser}>
           <Docente/>
+          </UserContext.Provider>
         </>);
     }else{
       if (logeado && rol=='estudiante') {

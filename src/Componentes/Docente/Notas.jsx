@@ -1,12 +1,12 @@
 import React from 'react'
-import { TablaNotas } from './TablaNotas'
+import {  TablaNotasDocente } from './TablaNotasDocente'
 
 export const Notas = () => {
   return (
     <div className='body2'>
     <div>Notas</div>
     <div>
-      < TablaNotas/>
+      < TablaNotasDocente/>
     </div>
     </div>
   )
