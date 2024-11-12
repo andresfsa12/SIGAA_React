@@ -17,7 +17,6 @@ function Navbar_docente() {
             <img src={LogoSIGAA} alt="Logo" width="120px"></img>
                 <ul>
                 <li><Link to="/Docente/Notas">Notas</Link></li>
-                <li><Link to="/Docente/Asignaturas">Asignaturas</Link></li>
                 <li><Link to="/Docente/Horario">Horario</Link></li>
                 <li><Link to="/Docente/Asistencia">Asistencia</Link></li>
                 <li><Link to="/Docente/Boletines">Boletines</Link></li>
