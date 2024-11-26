@@ -36,6 +36,7 @@ export const TablaNotasDocente = () => {
     Codigo_Docente: id_docente // Asigna el ID del docente automáticamente
   });
 
+  //Consultar notas segun el id del docente
     const getNota = async ()=>{
         try{
           const {data} =await axios.get('http://localhost:3000/api/notas-docente', {params: { id_docente }});
@@ -45,7 +46,7 @@ export const TablaNotasDocente = () => {
         }
       }
 
-      ////
+    // Eliminar nota
 
       const onDelete = async (Codigo_Notas)=>{
         try{
@@ -57,7 +58,7 @@ export const TablaNotasDocente = () => {
           console.log(error)
         }
       }
-  
+    // Editar nota
        const handleOpenModal = (notas) => {
         setEditingNotas(notas);
         setOpenModal(true);
@@ -101,6 +102,7 @@ export const TablaNotasDocente = () => {
         setNewNota({  // Limpia el estado newNota
           Codigo_Estudiante: '',
           Materia: '',
+          Grado: '',
           Codigo_Periodos: '',
           nota: '',
           Codigo_Docente: id_docente, 
@@ -153,6 +155,7 @@ export const TablaNotasDocente = () => {
                 <TableCell>Nombre</TableCell>
                 <TableCell>Apellido</TableCell>
                 <TableCell>Asignatura</TableCell>
+                <TableCell>Grado</TableCell>
                 <TableCell>Periodo Académico</TableCell>
                 <TableCell>Nota</TableCell>
                 <TableCell>Docente</TableCell>
@@ -167,6 +170,7 @@ export const TablaNotasDocente = () => {
                     <TableCell>{notas.Nombre}</TableCell>
                     <TableCell>{notas.Apellido}</TableCell>
                     <TableCell>{notas.Materia}</TableCell>
+                    <TableCell>{notas.Grado}</TableCell>
                     <TableCell>{notas.Codigo_Periodos}</TableCell>
                     <TableCell>{notas.nota}</TableCell>
                     <TableCell>{notas.Codigo_Docente}</TableCell>
@@ -186,7 +190,7 @@ export const TablaNotasDocente = () => {
           </Table>
         </TableContainer>
       
-      
+      {/*Modal para actualizar notas*/}
       <Modal open={openModal} onClose={handleCloseModal}>
       <Box sx={style}>
         <h2>Editar Notas</h2>
@@ -219,6 +223,9 @@ export const TablaNotasDocente = () => {
           />
           <TextField 
             label="Materia" name="Materia" value={newNota.Materia} onChange={handleAddChange} fullWidth margin="normal" 
+          />
+          <TextField 
+            label="Grado" name="Grado" value={newNota.Grado} onChange={handleAddChange} fullWidth margin="normal" 
           />
           <TextField 
             label="Periodo" name="Codigo_Periodos" value={newNota.Codigo_Periodos} onChange={handleAddChange} fullWidth margin="normal" 

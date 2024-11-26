@@ -5,6 +5,7 @@ import { Estudiante } from './Estudiante'
 import { Docente } from './Docente'
 import UserContext from './Contexto/UserContext'
 import axios from 'axios';
+import {Administrativo} from './Administrativo'
 
 export function App() {
 
@@ -65,6 +66,11 @@ export function App() {
           params: { Id_Estudiante: usuario, Clave: clave },
           withCredentials: true,
         });
+      } else if (rol === 'administrativo') {
+        response = await axios.get('http://localhost:3000/login-Administrativo', {
+          params: { Id_Admin: usuario, Clave: clave },
+          withCredentials: true,
+        });
       } else {
         alert('Selecciona un rol');
         return;
@@ -123,6 +129,16 @@ export function App() {
         </UserContext.Provider>
         </>);
     }else{
+      if (logueado && rol=='administrativo') {
+        return(
+          <>
+        <UserContext.Provider value={infoUser}>
+        <button onClick={cerrarSesion}>Cerrar sesión</button> {/* Botón para cerrar sesión */}
+        <Administrativo/>
+        </UserContext.Provider>
+        </>);
+    }
+    else{
       <App/>
     }
   }}
@@ -136,6 +152,7 @@ return (
         <option value="acudiente">Acudiente</option>
         <option value="estudiante">Estudiante</option>
         <option value="docente">Docente</option>
+        <option value="administrativo">Administrativo</option>
       </select>
     <h1>Usuario:</h1> <input placeholder='Identificación' type="text"  name="usuario"  
                 value={usuario} onChange={cambiarUsuario} />
@@ -148,6 +165,6 @@ return (
     </div>
   </div>
   )
-}
+    }}
 
 export default App 

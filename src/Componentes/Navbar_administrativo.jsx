@@ -16,8 +16,8 @@ function Navbar_acudiente() {
             <nav ref={navRef}>
             <img src={LogoSIGAA} alt="Logo" width="120px"></img>
                 <ul>
-                <li><Link to="/Acudiente/Estudiantes">Estudiante</Link></li>
-                <li><Link to="/Acudiente/Notas">Notas</Link></li>
+                <li><Link to="/Administrativo/Estudiantes">Estudiantes</Link></li>
+                <li><Link to="/Administrativo/Docentes">Docentes</Link></li>
                 </ul>
                 <button className='nav-btn nav-close-btn' onClick={showNavbar}>
                     <FaTimes/>
