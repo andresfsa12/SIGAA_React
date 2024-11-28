@@ -4,6 +4,7 @@ import axios from 'axios'
 import {  Table, IconButton, TableContainer, TableHead, TableRow, TableCell, TableBody, Paper, Modal, Box, TextField, Button, MenuItem, FormControl, Select} from '@mui/material';
 import { EditOutlined, DeleteForeverOutlined, AddCircleOutline } from '@mui/icons-material';
 import UserContext from '../../Contexto/UserContext';
+import { format } from 'date-fns';
 
 //Estilos de la ventana para editar estudiante
 const style = {
@@ -21,7 +22,6 @@ const style = {
 
 export const TablaDocente = () => {
 
-  
   const [docenteList, setDocenteList] = useState([]);
   const [editingDocente, setEditingDocente] = useState(null);
   // Estado para controlar la visibilidad del modal de editar docente
@@ -208,7 +208,7 @@ const getUser = async ()=>{
               <FormControl>
               <TextField label="ID Docente" name="Id_Docente" value={editingDocente.Id_Docente} onChange={handleEditChange} fullWidth margin="normal" />
               <TextField label="Nombre" name="Nombre_Docente" value={editingDocente.Nombre_Docente} onChange={handleEditChange} fullWidth margin="normal" />
-              <TextField label="" type='date' name="fecha_nacimiento" value={editingDocente.fecha_nacimiento} onChange={handleEditChange} fullWidth margin="normal" 
+              <TextField label="Fecha nacimiento" type='date' name="fecha_nacimiento" value={editingDocente.fecha_nacimiento} onChange={handleEditChange} fullWidth margin="normal" 
               helperText="Selecciona la fecha de nacimiento"/>
               <TextField select label="Genero" name="Genero" value={editingDocente.Genero} onChange={handleEditChange} fullWidth margin="normal"
                 helperText="Seleccione el género">

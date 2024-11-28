@@ -2,13 +2,13 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 
 import Navbar_acudiente from './Componentes/Navbar_acudiente';
-import { Registro_estudiante } from './Componentes/Acudiente/Registro_estudiante';
+import { Asistencia } from './Componentes/Acudiente/Asistencia';
 import { Route,Routes } from 'react-router-dom';
 import { Estudiantes } from './Componentes/Acudiente/Estudiantes';
 import { Notas } from './Componentes/Acudiente/Notas';
 
 export function Acudientes() {
-
+  
 
 
   return(
@@ -20,7 +20,7 @@ export function Acudientes() {
       <Routes>
           <Route path="/Acudiente/Estudiantes" element={<Estudiantes/>} />
           <Route path="/Acudiente/Notas" element={<Notas/>} />
-          <Route path="/Acudiente/Registro_estudiante" element={<Registro_estudiante/>} />
+          <Route path="/Acudiente/Asistencia" element={<Asistencia/>} />
           
         </Routes>
         

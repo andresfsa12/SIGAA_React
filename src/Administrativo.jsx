@@ -5,6 +5,7 @@ import Navbar_administrativo from './Componentes/Navbar_administrativo';
 import { Route,Routes } from 'react-router-dom';
 import { Estudiantes } from './Componentes/Administrativo/Estudiantes';
 import { Docentes } from './Componentes/Administrativo/Docentes';
+import { Horario } from './Componentes/Administrativo/Horario';
 
 export function Administrativo() {
 
@@ -19,6 +20,7 @@ export function Administrativo() {
       <Routes>
           <Route path="/Administrativo/Estudiantes" element={<Estudiantes/>} />
           <Route path="/Administrativo/Docentes" element={<Docentes/>} />
+          <Route path="/Administrativo/Horario" element={<Horario/>} />
           
         </Routes>
         

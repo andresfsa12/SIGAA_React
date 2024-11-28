@@ -43,7 +43,7 @@ export const TablaNotas = () => {
                     <TableCell>{notas.Nombre}</TableCell>
                     <TableCell>{notas.Apellido}</TableCell>
                     <TableCell>{notas.Materia}</TableCell>
-                    <TableCell>{notas.Codigo_Periodos}</TableCell>
+                    <TableCell>{notas.Periodo_Nombre}</TableCell>
                     <TableCell>{notas.nota}</TableCell>
                     <TableCell>{notas.Codigo_Docente}</TableCell>
                 </TableRow>

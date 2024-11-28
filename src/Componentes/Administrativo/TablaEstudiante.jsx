@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react'
 import React from 'react'
 import axios from 'axios'
-import {  Table, IconButton, TableContainer, TableHead, TableRow, TableCell, TableBody, Paper, Modal, Box, TextField, Button, MenuItem, FormControl, Select} from '@mui/material';
+import { Table, IconButton, TableContainer, TableHead, TableRow, TableCell, TableBody, Paper, Modal, Box, TextField, Button, MenuItem, FormControl, Select} from '@mui/material';
 import { EditOutlined, DeleteForeverOutlined, AddCircleOutline } from '@mui/icons-material';
 import UserContext from '../../Contexto/UserContext';
 
@@ -25,12 +25,8 @@ export const TablaEstudiante = () => {
   const [studentList, setStudentList] = useState([]);
   const [editingStudent, setEditingStudent] = useState(null);
   const [openModal, setOpenModal] = useState(false);
-  
-  // Estado para controlar la visibilidad del modal de agregar estudiante
-  const [openAddModal, setOpenAddModal] = useState(false);
-  
-  // Estado para almacenar los datos de la nueva nota
-  const [newEstudiante, setNewEstudiante] = useState({
+  const [openAddModal, setOpenAddModal] = useState(false); // Estado para controlar la visibilidad del modal de agregar estudiante
+  const [newEstudiante, setNewEstudiante] = useState({ // Estado para almacenar los datos de la nueva nota
     Tipo_Id: '',
     Id_Estudiante: '',
     Nombre: '',
@@ -44,8 +40,7 @@ export const TablaEstudiante = () => {
     });
 const cod_Acudiente = useContext(UserContext);
 
-//Consultar estudiantes que esten relacionados con el ID del acudiente que inició sesión  
-const getUser = async ()=>{
+const getUser = async ()=>{ //Consultar estudiantes
   try{
     const {data} = await axios.get('http://localhost:3000/api/administrar-estudiante');
       setStudentList(data);
@@ -189,7 +184,6 @@ const getUser = async ()=>{
                     <TableCell>{estudiante.Codigo_Grado}</TableCell>
                     <TableCell>{estudiante.Id_Acudiente}</TableCell>
                     <TableCell>
-                      
                       <IconButton size='small' color='primary' onClick={() => handleOpenModal(estudiante)}>
                         <EditOutlined/>
                       </IconButton>
