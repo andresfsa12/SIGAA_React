@@ -25,10 +25,8 @@ export const TablaNotasDocente = () => {
   const [openModal, setOpenModal] = useState(false);
   const [notasList, setNotasList] = useState([]);
   const id_docente = useContext(UserContext);
-    // Estado para controlar la visibilidad del modal de agregar notas
-  const [openAddModal, setOpenAddModal] = useState(false);
-    // Estado para almacenar los datos de la nueva nota
-  const [newNota, setNewNota] = useState({
+  const [openAddModal, setOpenAddModal] = useState(false); // Estado para controlar la visibilidad del modal de agregar notas
+  const [newNota, setNewNota] = useState({// Estado para almacenar los datos de la nueva nota
     Codigo_Estudiante: '',
     Materia: '',
     Codigo_Periodos: '',
