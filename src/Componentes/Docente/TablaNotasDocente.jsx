@@ -1,6 +1,7 @@
 import React from 'react'
-import { useContext, useEffect, useState } from 'react'
-import {  Table, IconButton, TableContainer, TableHead, TableRow, TableCell, TableBody, Paper, Modal, Box, TextField, Button} from '@mui/material';
+import { useContext, useEffect, useState, useRef } from 'react'
+import {  Table, IconButton, TableContainer, TableHead, TableRow, TableCell, TableBody, Paper, Modal, Box, TextField, Button, Select,
+  MenuItem,} from '@mui/material';
 import { EditOutlined, DeleteForeverOutlined, AddCircleOutline } from '@mui/icons-material'; 
 import axios from 'axios';
 import UserContext from '../../Contexto/UserContext';
@@ -25,6 +26,13 @@ export const TablaNotasDocente = () => {
   const [openModal, setOpenModal] = useState(false);
   const [notasList, setNotasList] = useState([]);
   const id_docente = useContext(UserContext);
+
+  const prevNotasList = useRef(null);
+  const [studentCodes, setStudentCodes] = useState([]); //Estado para almacenar los codigos estudiante para el SELECT
+  const [selectedStudentCode, setSelectedStudentCode] = useState(''); //Estado para almacenar el codigo estudiante filtro
+  const [error, setError] = useState(null); // Estado para manejar errores
+
+ 
   const [openAddModal, setOpenAddModal] = useState(false); // Estado para controlar la visibilidad del modal de agregar notas
   const [newNota, setNewNota] = useState({// Estado para almacenar los datos de la nueva nota
     Codigo_Estudiante: '',
@@ -35,15 +43,23 @@ export const TablaNotasDocente = () => {
   });
 
   //Consultar notas segun el id del docente
-    const getNota = async ()=>{
-        try{
-          const {data} =await axios.get('http://localhost:3000/api/notas-docente', {params: { id_docente }});
-          setNotasList(data);
-        } catch(error){
-          console.error('Error al obtener datos:',error);
-        }
+  const getNota = async () => {
+    try {
+      const { data } = await axios.get('http://localhost:3000/api/notas-docente', { params: { id_docente } });
+      setNotasList(data);
+  
+      // Actualizar códigos de estudiantes solo si la lista de notas ha cambiado
+      if (prevNotasList.current !== data) {
+        const uniqueCodes = [...new Set(data.map((nota) => nota.Codigo_Estudiante))];
+        setStudentCodes(uniqueCodes);
+        prevNotasList.current = data;
       }
-
+    } catch (error) {
+      console.error('Error al obtener datos:', error);
+      setError(`Error al obtener las notas: ${error.message}`);
+    }
+  };
+    
     // Eliminar nota
 
       const onDelete = async (Codigo_Notas)=>{
@@ -84,8 +100,6 @@ export const TablaNotasDocente = () => {
           alert('Error al procesar la solicitud.');
         }
       };
-
-
 
       /// AGREGAR NOTA
 
@@ -129,12 +143,29 @@ export const TablaNotasDocente = () => {
       };
 
       useEffect(() => {
-        getNota();
-      })
-
+        getNota()
+      });
   return (
     <div className='body2'>
-      
+        {error && <p>Error: {error}</p>}
+        <div className='filtros'>
+        Codigo Estudiante:
+        <Select 
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={selectedStudentCode}
+          onChange={(e) => setSelectedStudentCode(e.target.value)}
+          className="select" // Aplica la clase al Select
+        
+        >
+          <MenuItem value="">Todos</MenuItem>
+          {studentCodes.map(code => (
+            <MenuItem key={code} value={code}>
+              {code}
+        </MenuItem>
+          ))}
+    </Select>
+    </div>
        <TableContainer component={Paper}>
         {/* Agrega un botón para abrir el modal de agregar nota */}
         <Button 
@@ -160,8 +191,13 @@ export const TablaNotasDocente = () => {
                 <TableCell>Acciones</TableCell>
               </TableRow>
             </TableHead>
+            
             <TableBody>
-              {notasList.map((notas,index)=>(
+              {/*mostrar solo las filas correspondientes al código de estudiante seleccionado, debemos filtrar la lista de notas notasList antes de renderizar la tabla.*/}
+            {notasList
+          .filter(nota => !selectedStudentCode || nota.Codigo_Estudiante === selectedStudentCode)
+          .map((notas, index) => (
+             
                 <TableRow key={index}>
                     <TableCell>{notas.Codigo_Notas}</TableCell>
                     <TableCell>{notas.Codigo_Estudiante}</TableCell>

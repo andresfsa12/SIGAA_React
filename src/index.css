@@ -329,3 +329,14 @@ form{
   padding: 20px;
 }
 
+.select {
+  width: 70px;
+  font-size: 5rem;
+  padding: 2px;
+  margin-right: 10px;
+  height: 22px;
+}
+
+.filtros{
+padding: 10px;
+}
