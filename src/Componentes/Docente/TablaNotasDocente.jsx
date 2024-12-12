@@ -8,31 +8,11 @@ import UserContext from '../../Contexto/UserContext';
 
 export const TablaNotasDocente = () => {
 
-  //Estilo de la ventana editar notas
-  const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width:   
-   400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-  };
-
+    //Variables para CRUD de Notas
   const [editingNotas, setEditingNotas] = useState(null);
   const [openModal, setOpenModal] = useState(false);
   const [notasList, setNotasList] = useState([]);
   const id_docente = useContext(UserContext);
-
-  const prevNotasList = useRef(null);
-  const [studentCodes, setStudentCodes] = useState([]); //Estado para almacenar los codigos estudiante para el SELECT
-  const [selectedStudentCode, setSelectedStudentCode] = useState(''); //Estado para almacenar el codigo estudiante filtro
-  const [error, setError] = useState(null); // Estado para manejar errores
-
- 
   const [openAddModal, setOpenAddModal] = useState(false); // Estado para controlar la visibilidad del modal de agregar notas
   const [newNota, setNewNota] = useState({// Estado para almacenar los datos de la nueva nota
     Codigo_Estudiante: '',
@@ -42,13 +22,23 @@ export const TablaNotasDocente = () => {
     Codigo_Docente: id_docente // Asigna el ID del docente automáticamente
   });
 
-  //Consultar notas segun el id del docente
-  const getNota = async () => {
+
+  //Variables para Filtro lista desplegable
+  const prevNotasList = useRef(null);
+  const [studentCodes, setStudentCodes] = useState([]); //Estado para almacenar los codigos estudiante para el SELECT
+  const [selectedStudentCode, setSelectedStudentCode] = useState(''); //Estado para almacenar el codigo estudiante filtro
+  const [error, setError] = useState(null); // Estado para manejar errores
+
+  const [materiasList, setMateriasList] = useState([]); //Estado para almacenar la asignatura para el SELECT
+  const [gradoList, setGradoList] = useState([]); //Estado para almacenar el Grado para el SELECT
+
+
+  const getNota = async () => {  //Consultar notas segun el id del DOCENTE
     try {
       const { data } = await axios.get('http://localhost:3000/api/notas-docente', { params: { id_docente } });
       setNotasList(data);
   
-      // Actualizar códigos de estudiantes solo si la lista de notas ha cambiado
+      // Actualizar códigos de estudiantes solo si la lista de notas ha cambiado por FILTRO LISTA DESPLEGABLE
       if (prevNotasList.current !== data) {
         const uniqueCodes = [...new Set(data.map((nota) => nota.Codigo_Estudiante))];
         setStudentCodes(uniqueCodes);
@@ -59,9 +49,28 @@ export const TablaNotasDocente = () => {
       setError(`Error al obtener las notas: ${error.message}`);
     }
   };
-    
+  
+//Consultar MATERIAS segun el id del DOCENTE
+  const getMateria = async () => {  
+    try {
+      const { data } = await axios.get('http://localhost:3000/api/materias', { params: { id_docente } });
+      setMateriasList(data);
+    } catch (error) {
+      console.error('Error al obtener datos:', error);
+      setError(`Error al obtener las materias: ${error.message}`);
+    }
+  };
+  //Consultar GRADO segun el id del DOCENTE
+  const getGrado = async () => {  
+    try {
+      const { data } = await axios.get('http://localhost:3000/api/grado', { params: { id_docente } });
+      setGradoList(data);
+    } catch (error) {
+      console.error('Error al obtener datos:', error);
+      setError(`Error al obtener los grados: ${error.message}`);
+    }
+  };
     // Eliminar nota
-
       const onDelete = async (Codigo_Notas)=>{
         try{
           const {data}=await axios.post('http://localhost:3000/api/eliminar-nota',{Codigo_Notas: Codigo_Notas})
@@ -143,8 +152,11 @@ export const TablaNotasDocente = () => {
       };
 
       useEffect(() => {
-        getNota()
+        getNota();
+        getMateria();
+        getGrado();
       });
+
   return (
     <div className='body2'>
         {error && <p>Error: {error}</p>}
@@ -208,9 +220,8 @@ export const TablaNotasDocente = () => {
                     <TableCell>{notas.Codigo_Periodos}</TableCell>
                     <TableCell>{notas.nota}</TableCell>
                     <TableCell>{notas.Codigo_Docente}</TableCell>
-                    
-                    <TableCell>
-                      
+        
+                    <TableCell>              
                       <IconButton size='small' color='primary' onClick={() => handleOpenModal(notas)}>
                         <EditOutlined/>
                       </IconButton>
@@ -226,7 +237,7 @@ export const TablaNotasDocente = () => {
       
       {/*Modal para actualizar notas*/}
       <Modal open={openModal} onClose={handleCloseModal}>
-      <Box sx={style}>
+      <Box className="modal">
         <h2>Editar Notas</h2>
         {editingNotas && (
           <form>
@@ -240,27 +251,28 @@ export const TablaNotasDocente = () => {
     </Modal>
     {/* Modal para agregar nuevas notas */}
     <Modal open={openAddModal} onClose={handleCloseAddModal}>
-        <Box
-          sx={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            bgcolor: 'background.paper',
-            boxShadow:   24,
-            p: 6,
-          }}
-        >
+        <Box className="modal"  >
           <h2>Agregar Nueva Nota</h2>
           <TextField 
             label="Codigo Estudiante" name="Codigo_Estudiante" value={newNota.Codigo_Estudiante} onChange={handleAddChange} fullWidth margin="normal" 
           />
           <TextField 
-            label="Materia" name="Materia" value={newNota.Materia} onChange={handleAddChange} fullWidth margin="normal" 
-          />
+            select label="Materia" name="Materia" value={newNota.Materia} onChange={handleAddChange} fullWidth margin="normal" 
+           > {materiasList.map((materia) => (
+            <MenuItem key={materia.Nombre} value={materia.Nombre}>
+                {materia.Nombre}
+            </MenuItem>
+             ))}
+            </TextField>
           <TextField 
-            label="Grado" name="Grado" value={newNota.Grado} onChange={handleAddChange} fullWidth margin="normal" 
-          />
+            select label="Grado" name="Grado" value={newNota.Grado} onChange={handleAddChange} fullWidth margin="normal" 
+          >{gradoList.map((grado) => (
+            <MenuItem key={grado.Codigo_Grado} value={grado.Codigo_Grado}>
+                {grado.Codigo_Grado}
+            </MenuItem>
+             ))}
+          
+          </TextField>
           <TextField 
             label="Periodo" name="Codigo_Periodos" value={newNota.Codigo_Periodos} onChange={handleAddChange} fullWidth margin="normal" 
           />

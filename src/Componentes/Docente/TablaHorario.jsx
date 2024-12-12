@@ -45,7 +45,7 @@ export const TablaHorario = () => {
                     <TableCell>{horariodocente.Dia}</TableCell>
                     <TableCell>{horariodocente.Hora}</TableCell>
                     <TableCell>{horariodocente.Materia}</TableCell>
-                    <TableCell>{horariodocente.Codigo_Grado}</TableCell>
+                    <TableCell>{horariodocente.Codigo_Grado_H}</TableCell>
                     <TableCell>{horariodocente.Jornada}</TableCell>
                     <TableCell>{horariodocente.Nombre_Docente}</TableCell>
                 </TableRow>
