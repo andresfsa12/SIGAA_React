@@ -35,7 +35,7 @@ export const TablaEstudiante = () => {
     Genero: '',
     Direccion: '',
     Clave: '',
-    Codigo_Grado: '',
+    Codigo_Grado_E: '',
     Id_Acudiente: ''
     });
 const cod_Acudiente = useContext(UserContext);
@@ -108,7 +108,7 @@ const getUser = async ()=>{ //Consultar estudiantes
             Genero: '',
             Direccion: '',
             Clave: '',
-            Codigo_Grado: '',
+            Codigo_Grado_E: '',
             Id_Acudiente: ''
           });
         };
@@ -181,7 +181,7 @@ const getUser = async ()=>{ //Consultar estudiantes
                     <TableCell>{estudiante.Genero}</TableCell>
                     <TableCell>{estudiante.Direccion}</TableCell>
                     <TableCell>{estudiante.Clave}</TableCell>
-                    <TableCell>{estudiante.Codigo_Grado}</TableCell>
+                    <TableCell>{estudiante.Codigo_Grado_E}</TableCell>
                     <TableCell>{estudiante.Id_Acudiente}</TableCell>
                     <TableCell>
                       <IconButton size='small' color='primary' onClick={() => handleOpenModal(estudiante)}>
@@ -282,7 +282,7 @@ const getUser = async ()=>{ //Consultar estudiantes
             label="Clave" name="Clave" type='password' value={newEstudiante.Clave} onChange={handleAddChange} fullWidth margin="normal" 
           />
           <TextField 
-            label="Grado" name="Codigo_Grado" value={newEstudiante.Codigo_Grado} onChange={handleAddChange} fullWidth margin="normal" 
+            label="Grado" name="Codigo_Grado_E" value={newEstudiante.Codigo_Grado}_E onChange={handleAddChange} fullWidth margin="normal" 
           />
           <TextField 
             label="ID Acudiente" name="Id_Acudiente" value={newEstudiante.Id_Acudiente} onChange={handleAddChange} fullWidth margin="normal" 

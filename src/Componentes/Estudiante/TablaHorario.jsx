@@ -24,7 +24,7 @@ export const TablaHorario = () => {
 
   return (
     <div className='body2'>
-        <p>Horario:</p>
+        <p><h2>Horario:</h2></p>
         <div>        
             
             <TableContainer component={Paper}>
@@ -35,17 +35,21 @@ export const TablaHorario = () => {
                 <TableCell>Hora</TableCell>
                 <TableCell>Materia</TableCell>
                 <TableCell>Grado</TableCell>
+                <TableCell>Jornada</TableCell>
                 <TableCell>Docente</TableCell>
+                <TableCell>Año</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {horarioList.map((horarioestudiante,index)=>(
+              {horarioList.map((horario,index)=>(
                 <TableRow key={index}>
-                    <TableCell>{horarioestudiante.Dia}</TableCell>
-                    <TableCell>{horarioestudiante.Hora}</TableCell>
-                    <TableCell>{horarioestudiante.Materia}</TableCell>
-                    <TableCell>{horarioestudiante.Grado}</TableCell>
-                    <TableCell>{horarioestudiante.Nombre_Docente}</TableCell>
+                    <TableCell>{horario.Dia}</TableCell>
+                    <TableCell>{horario.Hora}</TableCell>
+                    <TableCell>{horario.Materia}</TableCell>
+                    <TableCell>{horario.Codigo_Grado_H}</TableCell>
+                    <TableCell>{horario.Jornada}</TableCell>
+                    <TableCell>{horario.Nombre_Docente}</TableCell>
+                    <TableCell>{horario.Year}</TableCell>
                 </TableRow>
               ))}
             </TableBody>

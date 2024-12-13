@@ -6,7 +6,6 @@ export function Horario () {
 
   return (
     <div className='Body2'>
-    <div>Horario:</div>
       <TablaHorario/>
     </div>
 

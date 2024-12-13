@@ -28,9 +28,10 @@ export const TablaHorario = () => {
     Dia: '',
     Hora: '',
     Materia: '',
-    Codigo_Grado: '',
+    Codigo_Grado_H: '',
     Jornada: '',
     Codigo_Docente: '',
+    Year: ''
     });
 
 
@@ -96,9 +97,10 @@ export const TablaHorario = () => {
             Dia: '',
             Hora: '',
             Materia: '',
-            Codigo_Grado: '',
+            Codigo_Grado_H: '',
             Jornada: '',
-            Codigo_Docente: ''
+            Codigo_Docente: '',
+            Year: ''
           });
         };
   
@@ -127,7 +129,7 @@ export const TablaHorario = () => {
 
   return (
     <div className='body2'>
-        <p>Horario:</p>
+        <p><h2>Horario:</h2></p>
         <div>        
             
           <TableContainer component={Paper}>
@@ -150,6 +152,7 @@ export const TablaHorario = () => {
                 <TableCell>Grado</TableCell>
                 <TableCell>Jornada</TableCell>
                 <TableCell>Docente</TableCell>
+                <TableCell>Año</TableCell>
                 <TableCell>Acciones</TableCell>
               </TableRow>
             </TableHead>
@@ -163,6 +166,7 @@ export const TablaHorario = () => {
                     <TableCell>{horario.Codigo_Grado_H}</TableCell>
                     <TableCell>{horario.Jornada}</TableCell>
                     <TableCell>{horario.Codigo_Docente}</TableCell>
+                    <TableCell>{horario.Year}</TableCell>
                     <TableCell>
                       <IconButton size='small' color='primary' onClick={() => handleOpenModal(horario)}>
                         <EditOutlined/>
@@ -228,7 +232,7 @@ export const TablaHorario = () => {
             <MenuItem value="Democracia">Democracia</MenuItem>
           </TextField>
           <TextField 
-            select label="Grado" name="Codigo_Grado" value={newHorario.Codigo_Grado} onChange={handleAddChange} fullWidth margin="normal" 
+            select label="Grado" name="Codigo_Grado_H" value={newHorario.Codigo_Grado_H} onChange={handleAddChange} fullWidth margin="normal" 
             helperText="Selecciona el grado">
             <MenuItem value="601">601</MenuItem>
             <MenuItem value="602">602</MenuItem>
@@ -266,6 +270,9 @@ export const TablaHorario = () => {
 
           <TextField 
             label="Codigo Docente" name="Codigo_Docente" value={newHorario.Codigo_Docente} onChange={handleAddChange} fullWidth margin="normal" 
+          />
+          <TextField 
+            label="Año" name="Year" value={newHorario.Year} onChange={handleAddChange} fullWidth margin="normal" 
           />
           <Button variant="contained" onClick={handleSaveAdd}>Agregar</Button>
           </FormControl>
