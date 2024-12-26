@@ -19,7 +19,6 @@ function Navbar_docente() {
                 <li><Link to="/Docente/Notas">Notas</Link></li>
                 <li><Link to="/Docente/Horario">Horario</Link></li>
                 <li><Link to="/Docente/Asistencia">Asistencia</Link></li>
-                <li><Link to="/Docente/Boletines">Boletines</Link></li>
                 </ul>
                 <button className='nav-btn nav-close-btn' onClick={showNavbar}>
                     <FaTimes/>

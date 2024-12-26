@@ -330,7 +330,7 @@ form{
 }
 
 .select {
-  width: 70px;
+  width: 90px;
   font-size: 5rem;
   padding: 2px;
   margin-right: 10px;
@@ -338,6 +338,7 @@ form{
 }
 
 .filtros{
+  display: flex;
 padding: 10px;
 }
 .modal{

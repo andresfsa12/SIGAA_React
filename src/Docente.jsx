@@ -5,7 +5,6 @@ import { Route,Routes } from 'react-router-dom';
 import { Notas } from './Componentes/Docente/Notas';
 import { Horario } from './Componentes/Docente/Horario';
 import { Asistencia } from './Componentes/Docente/Asistencia';
-import { Boletines } from './Componentes/Docente/Boletines';
 
 export function Docente()  {
 
@@ -20,7 +19,6 @@ export function Docente()  {
           <Route path="/Docente/Notas" element={<Notas/>} />
           <Route path="/Docente/Horario" element={<Horario/>} />
           <Route path="/Docente/Asistencia" element={<Asistencia/>} />
-          <Route path="/Docente/Boletines" element={<Boletines/>} />
         </Routes>
     </div>
   )

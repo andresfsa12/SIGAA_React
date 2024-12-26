@@ -5,6 +5,8 @@ import {  Table, IconButton, TableContainer, TableHead, TableRow, TableCell, Tab
 import { EditOutlined, DeleteForeverOutlined, AddCircleOutline } from '@mui/icons-material'; 
 import axios from 'axios';
 import UserContext from '../../Contexto/UserContext';
+import jsPDF from 'jspdf'; //npm install jspdf jspdf-autotable
+import 'jspdf-autotable';
 
 export const TablaNotasDocente = () => {
 
@@ -31,6 +33,32 @@ export const TablaNotasDocente = () => {
 
   const [materiasList, setMateriasList] = useState([]); //Estado para almacenar la asignatura para el SELECT
   const [gradoList, setGradoList] = useState([]); //Estado para almacenar el Grado para el SELECT
+
+  const generatePDF = () => { //Generar PDF
+    const doc = new jsPDF();
+    const tableColumns = ["N°", "Codigo Estudiante", "Nombre", "Apellido", "Asignatura", "Grado", "Periodo Académico", "Nota", "Docente"];
+
+    const tableData = notasList
+        .filter(nota => !selectedStudentCode || nota.Codigo_Estudiante === selectedStudentCode)
+        .map((notas) => [
+            notas.Codigo_Notas,
+            notas.Codigo_Estudiante,
+            notas.Nombre,
+            notas.Apellido,
+            notas.Materia,
+            notas.Grado,
+            notas.Codigo_Periodos,
+            notas.nota,
+            notas.Codigo_Docente,
+        ]);
+
+    doc.autoTable({
+        head: [tableColumns],
+        body: tableData,
+    });
+
+    doc.save("notas.pdf");
+    };
 
 
   const getNota = async () => {  //Consultar notas segun el id del DOCENTE
@@ -168,7 +196,6 @@ export const TablaNotasDocente = () => {
           value={selectedStudentCode}
           onChange={(e) => setSelectedStudentCode(e.target.value)}
           className="select" // Aplica la clase al Select
-        
         >
           <MenuItem value="">Todos</MenuItem>
           {studentCodes.map(code => (
@@ -177,6 +204,10 @@ export const TablaNotasDocente = () => {
         </MenuItem>
           ))}
     </Select>
+     {/* Botón para generar PDF */}
+     <Button variant="contained" onClick={generatePDF} sx={{marginLeft: 2}}>
+                    Exportar a PDF
+                </Button>
     </div>
        <TableContainer component={Paper}>
         {/* Agrega un botón para abrir el modal de agregar nota */}
