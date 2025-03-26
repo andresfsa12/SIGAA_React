@@ -43,6 +43,10 @@ const getUser = async ()=>{
     <div>
       
       <div className='Body2'>
+        <div className='tabla-content'>
+        <div className='tabla-content'>
+          <h1>Estudiantes</h1>
+        </div>
       <TableContainer component={Paper}>
           <Table>
             <TableHead>
@@ -80,6 +84,7 @@ const getUser = async ()=>{
             </TableBody>
           </Table>
         </TableContainer>
+        </div>
       </div>
     
       </div>

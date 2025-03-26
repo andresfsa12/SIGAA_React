@@ -133,7 +133,11 @@ export const TablaAsistencia = () => {
 
   return (
     <div className='body2'>
+        <div className='tabla-content'>
         
+        <div className='tabla-content'>
+          <h1>Asistencia</h1>
+        </div>
        <TableContainer component={Paper}>
         {/* Agrega un botón para abrir el modal de agregar ASISTENCIA */}
         <Button 
@@ -231,6 +235,7 @@ export const TablaAsistencia = () => {
         )}
       </Box>
     </Modal>
+    </div>
       </div>
   )
 }

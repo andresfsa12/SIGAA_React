@@ -24,7 +24,10 @@ export const TablaAsistencia = () => {
 
   return (
     <div className='Body2'>
-        <div>
+        <div className='tabla-content'>
+          <div className='tabla-content'>
+            <h1>Asistencia reportada</h1>
+          </div>
         <TableContainer component={Paper}>
           <Table>
             <TableHead>

@@ -3,8 +3,7 @@ import { TablaAsistencia } from './TablaAsistencia'
 
 export const Asistencia = () => {
   return (
-    <div className='body2'>
-    <div>Asistencia</div>
+    <div className='Body2'>
     <div>
       < TablaAsistencia/>
     </div>

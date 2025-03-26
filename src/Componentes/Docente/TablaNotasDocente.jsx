@@ -186,7 +186,12 @@ export const TablaNotasDocente = () => {
       });
 
   return (
-    <div className='body2'>
+    <div className='Body2'>
+      <div className='tabla-content'>
+          <div className='tabla-content'>
+            <h1>Notas</h1>
+          </div>
+
         {error && <p>Error: {error}</p>}
         <div className='filtros'>
         Codigo Estudiante:
@@ -316,7 +321,7 @@ export const TablaNotasDocente = () => {
           <Button variant="contained" onClick={handleSaveAdd}>Agregar Nota</Button>
         </Box>
       </Modal>
-    
+    </div>
   </div>
 )
   

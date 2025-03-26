@@ -24,7 +24,11 @@ export const TablaAsistencia = () => {
 
   return (
     <div className='Body2'>
-        <div>
+        <div className='tabla-content'>
+        
+        <div className='tabla-content'>
+          <h1>Asistencia</h1>
+        </div>
         <TableContainer component={Paper}>
           <Table>
             <TableHead>
@@ -52,7 +56,7 @@ export const TablaAsistencia = () => {
           </Table>
         </TableContainer>
        
-            </div>
+        </div>
       </div>
   )
 }

@@ -6,7 +6,6 @@ export function Docentes () {
 
   return (
     <div className='Body2'>
-    <div>Docentes:</div>
       <TablaDocente/>
     </div>
 

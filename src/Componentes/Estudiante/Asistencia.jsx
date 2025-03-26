@@ -4,7 +4,6 @@ import { TablaAsistencia } from './TablaAsistencia'
 export const Asistencia = () => {
   return (
     <div className='Body2'>
-    <div>Inasistencia reportada:</div>
     <div>
       < TablaAsistencia/>
     </div>

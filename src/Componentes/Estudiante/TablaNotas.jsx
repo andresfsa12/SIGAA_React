@@ -23,7 +23,12 @@ export const TablaNotas = () => {
       })
 
   return (
-    <div className='body2'>
+    <div className='Body2'>
+      <div className='tabla-content'>
+        
+        <div className='tabla-content'>
+          <h1>Notas</h1>
+        </div>
        <TableContainer component={Paper}>
           <Table>
             <TableHead>
@@ -52,6 +57,7 @@ export const TablaNotas = () => {
             </TableBody>
           </Table>
         </TableContainer>
+        </div>
       </div>
   )
 }

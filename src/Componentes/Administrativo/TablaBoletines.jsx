@@ -81,9 +81,10 @@
     }, []);
 
     return (
-      <div className='body2'>
+      <div className='Body2'>
+        <div className='tabla-content'>
           {error && <p>Error: {error}</p>}
-          <div className='filtros'>
+          <div className='filtros' >
             <div className='selectEstudiante'>
           Codigo Estudiante:
           <Select 
@@ -140,7 +141,6 @@
                   <TableCell>Nota</TableCell>
                   <TableCell>Año</TableCell>
                   <TableCell>Docente</TableCell>
-                  <TableCell>Acciones</TableCell>
                 </TableRow>
               </TableHead>
               
@@ -162,20 +162,13 @@
                       <TableCell>{notas.Promedio_Nota}</TableCell>
                       <TableCell>{notas.Año}</TableCell>
                       <TableCell>{notas.Nombre_Docente}</TableCell>
-                      <TableCell>              
-                        <IconButton size='small' color='primary' onClick={() => handleOpenModal(notas)}>
-                          <EditOutlined/>
-                        </IconButton>
-                        <IconButton onClick={()=>onDelete(notas.Codigo_Notas)} size='small' color='secondary'>
-                          <DeleteForeverOutlined/>
-                        </IconButton>
-                      </TableCell>
+
                   </TableRow>
                 ))}
               </TableBody>
             </Table>
           </TableContainer>
-    
+          </div>
     </div>
   )
     

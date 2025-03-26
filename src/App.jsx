@@ -144,7 +144,9 @@ export function App() {
   }}
 return (
   <div className='body'>
-    <img className='LogoIndex' src={LogoSIGAA} alt="Logo" width="800px"></img>
+    <div className='container-center'>
+      <img className='LogoIndex' src={LogoSIGAA} alt="Logo" ></img>
+    </div>
     <form>
     <label htmlFor='rol'><h1>Rol:</h1></label>
       <select name="rol" id="rol" value={rol} onChange={cambiarRol}>

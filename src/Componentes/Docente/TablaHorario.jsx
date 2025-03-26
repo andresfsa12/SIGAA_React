@@ -23,10 +23,12 @@ export const TablaHorario = () => {
       })
 
   return (
-    <div className='body2'>
-        <p>Horario:</p>
-        <div>        
-            
+    <div className='Body2'>
+
+        <div className='tabla-content'>     
+            <div className='tabla-content'>   
+              <h1>Horario</h1>
+            </div>
             <TableContainer component={Paper}>
           <Table>
             <TableHead>

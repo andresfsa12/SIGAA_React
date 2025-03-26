@@ -3,8 +3,8 @@ import { TablaHorario } from './TablaHorario'
 
 export const Horario = () => {
   return (
-    <div>
-    <div className='text'>
+    <div className='Body2'>
+    <div >
       <TablaHorario/>
     </div>
     </div>

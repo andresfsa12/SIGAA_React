@@ -6,7 +6,6 @@ export function Estudiantes () {
 
   return (
     <div className='Body2'>
-    <div>Estudiantes:</div>
       <TablaEstudiante/>
     </div>
 

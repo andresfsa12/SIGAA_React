@@ -14,7 +14,7 @@ function Navbar_acudiente() {
   return (
         <header>
             <nav ref={navRef}>
-            <img src={LogoSIGAA} alt="Logo" width="120px"></img>
+            <img src={LogoSIGAA} className='LogoNavbar' alt="Logo" ></img>
                 <ul>
                 <li><Link to="/Acudiente/Estudiantes">Estudiante</Link></li>
                 <li><Link to="/Acudiente/Notas">Notas</Link></li>

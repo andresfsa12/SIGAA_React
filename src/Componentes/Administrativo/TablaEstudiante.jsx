@@ -139,9 +139,12 @@ const getUser = async ()=>{ //Consultar estudiantes
     })
   
   return (
-    <div>
+    <div className='Body2'>
+          <div className='tabla-content'>
+            <h1>Estudiantes</h1>
+          </div>
       
-      <div className='Body2'>
+      <div className='tabla-content'>
       <TableContainer component={Paper}>
         {/* Agrega un botón para abrir el modal de agregar estudiante */}
         <Button 
